@@ -31,6 +31,21 @@
 
   <title>my_app</title>
   <link rel="manifest" href="manifest.json">
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+  <script>
+    // Insert firebaseConfig when testing, remove when commitin to git
+    // Initialize Firebase  
+    firebase.initializeApp(firebaseConfig);  
+    firebase.analytics();  
+  </script>  
+
 </head>
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
