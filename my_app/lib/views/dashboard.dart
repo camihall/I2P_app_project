@@ -5,6 +5,8 @@ import 'package:my_app/state/appState.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
+import '../NavBar.dart';
+
 // ignore: must_be_immutable
 class Dashboard extends StatefulWidget {
   // ignore: prefer_typing_uninitialized_variables
@@ -58,10 +60,10 @@ class _DashboardState extends State<Dashboard> {
                                 const SizedBox(
                                   height: 10,
                                 ),
-
                                 CircleAvatar(
                                   radius: 80,
-                                  backgroundImage: NetworkImage(getCurrentUser()!.photoURL!),
+                                  backgroundImage:
+                                      NetworkImage(getCurrentUser()!.photoURL!),
                                 ),
                                 Text(vm.userData['name'],
                                     style:
@@ -84,7 +86,8 @@ class _DashboardState extends State<Dashboard> {
                                         letterSpacing: 1.5)),
                               ])
                         ],
-                      ))));
+                      ))),
+              drawer: NavBar());
         });
   }
 }

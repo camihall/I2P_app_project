@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/routes/route_guard.dart';
+import 'package:my_app/views/dashboard.dart';
 import 'package:redux/redux.dart';
 import 'package:my_app/routes/router.gr.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'NavBar.dart';
 import 'state/appState.dart';
+
 void main() {
   // Create your store as a final variable in the main function or inside a
   // State object. This works better with Hot Reload than creating it directly
