@@ -7,28 +7,23 @@ import '../state/appState.dart';
 final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
 Future<Map<String, dynamic>?> getUserData(String uid) async {
-  firestore
-      .collection('users')
-      .doc(uid)
-      .get()
-      .then((DocumentSnapshot documentSnapshot) {
-    if (documentSnapshot.exists) {
-      print('Document exists on the database');
-      Map<String, dynamic> data =
-          documentSnapshot.data()! as Map<String, dynamic>;
-      return {
-        'uid': data['uid'],
-        'name': data['name'],
-        'dob': data['dob'],
-        'email': data['email'],
-        'user_type': data['user_type'],
-      };
-    }
-  });
-  return null;
+  QuerySnapshot<Map<String, dynamic>> query =
+      await firestore.collection('users').where('uid', isEqualTo: uid).get();
+  if (query.size > 1) {
+    return null;
+  }
+  DocumentSnapshot documentSnapshot = query.docs[0];
+  Map<String, dynamic> data = documentSnapshot.data()! as Map<String, dynamic>;
+  return {
+    'uid': data['uid'],
+    'name': data['name'],
+    'dob': data['dob'],
+    'email': data['email'],
+    'user_type': data['user_type'],
+  };
 }
 
-void addUser(String uid, String name, String dob, String email) {
+Future<void> addUser(String uid, String name, String dob, String email) async {
   firestore
       .collection('users')
       .add({
@@ -40,9 +35,12 @@ void addUser(String uid, String name, String dob, String email) {
       })
       .then((value) => print("User Added"))
       .catchError((error) => print("Failed to add user: $error"));
+  return;
+  
 }
 
 Future<bool> existsInDatabase(String uid) async {
-  QuerySnapshot<Map<String, dynamic>> query = await firestore.collection('users').where('uid', isEqualTo: uid).get();
+  QuerySnapshot<Map<String, dynamic>> query =
+      await firestore.collection('users').where('uid', isEqualTo: uid).get();
   return query.size > 0;
 }

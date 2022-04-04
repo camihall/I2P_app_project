@@ -1,15 +1,23 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import '../main.dart';
 import 'authentication.dart';
 import '../db/database.dart';
 import '../state/appState.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'googleButton.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:my_app/routes/router.gr.dart';
+
+
 
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+  const Login({Key? key, this.onLoginCallback}) : super(key: key);
+
+  final Function(bool loggedIn)? onLoginCallback;
+
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -25,6 +33,9 @@ class _LoginPageState extends State<Login> {
 
   GlobalKey globalKey = GlobalKey();
 
+  late Function(bool loggedIn) onLoginCallback;
+  
+
   @override
   void initState() {
     textControllerEmail = TextEditingController();
@@ -33,6 +44,11 @@ class _LoginPageState extends State<Login> {
     textControllerPassword.text = '';
     textFocusNodeEmail = FocusNode();
     textFocusNodePassword = FocusNode();
+    if (widget.onLoginCallback != null) {
+      onLoginCallback = widget.onLoginCallback!;
+    } else {
+      onLoginCallback = (_) {AutoRouter.of(context).push(const DashboardRoute());};
+    }
     super.initState();
   }
 
@@ -171,13 +187,13 @@ class _LoginPageState extends State<Login> {
                     ),
                     onPressed: () async {
                       try {
-                        User? user = await emailSignIn(textControllerEmail.text,
-                            textControllerPassword.text);
+                          User? user = await emailSignIn(textControllerEmail.text, textControllerPassword.text);
                         if (user == null) {
                           print("lol");
                         } else {
-                          print(user.displayName);
-                          Navigator.pushNamed(context, '/dashboard');
+                          await store.dispatch(getFirebaseUser);
+                          App.of(context).authService.authenticated = true;
+                          onLoginCallback.call(true);
                         }
                       } on FirebaseAuthException {
                         Fluttertoast.showToast(
@@ -221,7 +237,7 @@ class _LoginPageState extends State<Login> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/registration');
+                      AutoRouter.of(context).push(RegistrationRoute(usedGoogleOAuth: false));
                     },
                     child: const Padding(
                       padding: EdgeInsets.only(

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/routes/router.gr.dart';
+import '../main.dart';
 import 'authentication.dart';
 import '../db/database.dart';
 import '../state/appState.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 
 class GoogleButton extends StatefulWidget {
@@ -40,12 +45,13 @@ class _GoogleButtonState extends State<GoogleButton> {
           });
           await signInWithGoogle().then((user) {
             if (user != null) {
-              existsInDatabase(user.uid).then((exist) {
+              existsInDatabase(user.uid).then((exist) async {
                 if (exist) {
-                  store.dispatch(getFirebaseUser);
-                  Navigator.pushNamed(context, '/dashboard');
+                  await store.dispatch(getFirebaseUser);
+                  App.of(context).authService.authenticated = true;
+                  AutoRouter.of(context).push(const DashboardRoute());      
                 } else {
-                  Navigator.pushNamed(context, '/registration');
+                  AutoRouter.of(context).push(RegistrationRoute(usedGoogleOAuth: true));
                 }
               }
               );

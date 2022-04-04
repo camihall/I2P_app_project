@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:my_app/routes/router.gr.dart';
+
 
 class Header extends StatelessWidget {
   const Header(this.heading);
@@ -156,7 +160,7 @@ class LandingDescription extends StatelessWidget {
         const SizedBox(height: 50,),
         InkWell(
               onTap: () {
-                Navigator.pushNamed(context, '/login');
+                AutoRouter.of(context).push(LoginRoute());
               },
               child: Container(
                 width: 150,

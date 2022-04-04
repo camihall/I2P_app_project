@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/routes/route_guard.dart';
 import 'package:redux/redux.dart';
-import 'views/landing.dart';
-import 'package:my_app/auth/login.dart';
-import 'package:my_app/auth/registration.dart';
-import 'package:my_app/views/dashboard.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:my_app/routes/router.gr.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'state/appState.dart';
+import 'utils/auth_service.dart';
 
 void main() {
   // Create your store as a final variable in the main function or inside a
@@ -20,25 +17,31 @@ void main() {
   ));
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   final Store<AppState> store;
   final String title;
 
-  const App({Key? key, required this.store, required this.title}) : super(key: key);
+  const App({Key? key, required this.store, required this.title})
+      : super(key: key);
 
+  static _AppState of(BuildContext context) =>
+      context.findAncestorStateOfType<_AppState>()!;
+
+  @override
+  State<StatefulWidget> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  final authService = AuthService();
+  late final _appRouter = AppRouter(routeGuard: RouteGuard(authService));
   @override
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(
       store: store,
-      child: MaterialApp(
-          title: title,
-          initialRoute: '/',
-          routes: {
-            '/': (context) => const LandingPage(),
-            '/login': (context) => const Login(),
-            '/registration': (context) => Registration(user: FirebaseAuth.instance.currentUser),
-            '/dashboard': (context) => Dashboard(user: FirebaseAuth.instance.currentUser) 
-          }),
+      child: MaterialApp.router(
+          title: widget.title,
+          routeInformationParser: _appRouter.defaultRouteParser(),
+          routerDelegate: _appRouter.delegate()),
     );
   }
 }

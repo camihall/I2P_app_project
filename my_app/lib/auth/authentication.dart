@@ -27,7 +27,7 @@ Future<User?> emailSignUp(String email, String password) async {
     );
     User user = userCredential.user!;
     return user;
-  } on FirebaseAuthException catch (e) {
+  } on FirebaseAuthException {
       rethrow;
   } catch (e) {
       rethrow;

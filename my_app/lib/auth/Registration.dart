@@ -3,12 +3,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'authentication.dart';
 import '../db/database.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:my_app/routes/router.gr.dart';
+import '../state/appState.dart';
+import '../main.dart';
+
+
 
 
 
 class Registration extends StatefulWidget {
-  final User? user;
-  const Registration({Key? key, this.user}) : super(key: key);
+  final bool? usedGoogleOAuth;
+  const Registration({Key? key, this.usedGoogleOAuth}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _RegistrationState();
@@ -31,7 +37,7 @@ class _RegistrationState extends State<Registration> {
 
   DateTime selectedDate = DateTime.now();
 
-  bool _isRegisteringWithGoogle = false;
+  late bool _isRegisteringWithGoogle;
 
   GlobalKey globalKey = GlobalKey();
 
@@ -97,8 +103,6 @@ class _RegistrationState extends State<Registration> {
 
   @override
   void initState() {
-    GlobalKey globalKey = GlobalKey();
-
     textControllerEmail = TextEditingController();
     textControllerName = TextEditingController();
     textControllerDOB = TextEditingController();
@@ -110,10 +114,13 @@ class _RegistrationState extends State<Registration> {
     textFocusNodeEmail = FocusNode();
     textFocusNodeName = FocusNode();
     textFocusNodePassword = FocusNode();
-    if (widget.user != null) {
+    if (widget.usedGoogleOAuth == true) {
+      User? user = getCurrentUser();
+      textControllerName.text = user!.displayName!;
+      textControllerEmail.text = user.email!;
       _isRegisteringWithGoogle = true;
-      textControllerName.text = widget.user!.displayName!;
-      textControllerEmail.text = widget.user!.email!;
+    } else {
+      _isRegisteringWithGoogle = false;
     }
     super.initState();
   }
@@ -261,8 +268,9 @@ class _RegistrationState extends State<Registration> {
             ),
           ),
           const SizedBox(height: 10),
-          const Text('Password'),
-          TextField(
+          _isRegisteringWithGoogle ? const SizedBox() : const Text('Password'),
+          _isRegisteringWithGoogle ? const SizedBox()
+          : TextField(
             focusNode: textFocusNodePassword,
             obscureText: true,
             enableSuggestions: false,
@@ -291,7 +299,7 @@ class _RegistrationState extends State<Registration> {
               hintText: "Password",
               fillColor: Colors.white,
               errorText: _isEditingPassword
-                  ? _validatePassword(textControllerEmail.text)
+                  ? _validatePassword(textControllerPassword.text)
                   : null,
               errorStyle: const TextStyle(
                 fontSize: 12,
@@ -316,7 +324,7 @@ class _RegistrationState extends State<Registration> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/login');
+                      AutoRouter.of(context).push(LoginRoute());
                     },
                     child: const Padding(
                       padding: EdgeInsets.only(
@@ -351,11 +359,13 @@ class _RegistrationState extends State<Registration> {
                     onPressed: () async {
                       try {
                         if (_isRegisteringWithGoogle) {
-                          addUser(widget.user!.uid, textControllerName.text, textControllerDOB.text, textControllerEmail.text);
+                          await addUser(FirebaseAuth.instance.currentUser!.uid, textControllerName.text, textControllerDOB.text, textControllerEmail.text);
                         } else {
-                          await emailSignUp(textControllerEmail.text, textControllerName.text).then((user) =>  addUser(user!.uid, textControllerName.text, textControllerDOB.text, textControllerEmail.text));
-                          Navigator.pushNamed(context, '/dashboard');
+                          await emailSignUp(textControllerEmail.text, textControllerPassword.text).then((user) =>  addUser(user!.uid, textControllerName.text, textControllerDOB.text, textControllerEmail.text));
                         }
+                        await store.dispatch(getFirebaseUser);
+                        App.of(context).authService.authenticated = true;
+                        AutoRouter.of(context).push(const DashboardRoute());
                       } catch (e) {
                         Fluttertoast.showToast(
                             msg: "Error registering",

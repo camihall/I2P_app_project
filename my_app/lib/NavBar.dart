@@ -26,7 +26,7 @@ class NavBar extends StatelessWidget {
             onTap: () => null,
           ),
           ListTile(
-            leading: Icon(Icons.notifications),
+            leading: Icon(Icons.notifications), 
             title: Text('SOS'),
             onTap: () => null,
           ),
