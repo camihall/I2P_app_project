@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'NavBar.dart';
+import 'home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return MaterialApp(
       title: 'New Page',
       theme: ThemeData(
@@ -114,10 +115,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(  
+              context,  
+              MaterialPageRoute(builder: (context) => Home()),  
+            );  
+        },
+        label: const Text('Confirm'),
+        icon: const Icon(Icons.thumb_up),
+        backgroundColor: Colors.green,
       ), // This trailing comma makes auto-formatting nicer for build methods.
       drawer: NavBar(),
     );
