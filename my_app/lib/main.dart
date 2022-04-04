@@ -4,8 +4,6 @@ import 'package:redux/redux.dart';
 import 'package:my_app/routes/router.gr.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'state/appState.dart';
-import 'utils/auth_service.dart';
-
 void main() {
   // Create your store as a final variable in the main function or inside a
   // State object. This works better with Hot Reload than creating it directly
@@ -32,8 +30,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  final authService = AuthService();
-  late final _appRouter = AppRouter(routeGuard: RouteGuard(authService));
+  late final _appRouter = AppRouter(routeGuard: RouteGuard());
   @override
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(

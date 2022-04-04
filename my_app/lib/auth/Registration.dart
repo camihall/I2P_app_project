@@ -364,7 +364,6 @@ class _RegistrationState extends State<Registration> {
                           await emailSignUp(textControllerEmail.text, textControllerPassword.text).then((user) =>  addUser(user!.uid, textControllerName.text, textControllerDOB.text, textControllerEmail.text));
                         }
                         await store.dispatch(getFirebaseUser);
-                        App.of(context).authService.authenticated = true;
                         AutoRouter.of(context).push(const DashboardRoute());
                       } catch (e) {
                         Fluttertoast.showToast(

@@ -47,7 +47,7 @@ class _LoginPageState extends State<Login> {
     if (widget.onLoginCallback != null) {
       onLoginCallback = widget.onLoginCallback!;
     } else {
-      onLoginCallback = (_) {AutoRouter.of(context).push(const DashboardRoute());};
+      onLoginCallback = (_) {AutoRouter.of(context).push(DashboardRoute());};
     }
     super.initState();
   }
@@ -192,7 +192,6 @@ class _LoginPageState extends State<Login> {
                           print("lol");
                         } else {
                           await store.dispatch(getFirebaseUser);
-                          App.of(context).authService.authenticated = true;
                           onLoginCallback.call(true);
                         }
                       } on FirebaseAuthException {

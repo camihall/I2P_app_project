@@ -48,7 +48,6 @@ class _GoogleButtonState extends State<GoogleButton> {
               existsInDatabase(user.uid).then((exist) async {
                 if (exist) {
                   await store.dispatch(getFirebaseUser);
-                  App.of(context).authService.authenticated = true;
                   AutoRouter.of(context).push(const DashboardRoute());      
                 } else {
                   AutoRouter.of(context).push(RegistrationRoute(usedGoogleOAuth: true));
