@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/views/exercises.dart';
 // import 'package:flutter/services.dart';
 // import 'package:url_launcher/url_launcher.dart';
-import 'Progress.dart';
-import 'main.dart';
-import 'sos.dart';
-import 'Steps.dart';
-import 'views/dashboard.dart';
+import '../Progress.dart';
+import '../main.dart';
+import '../sos.dart';
+import '../Steps.dart';
+import 'dashboard.dart';
 
 class SettingsRoute extends StatelessWidget {
   @override
@@ -52,6 +53,15 @@ class NavBar extends StatelessWidget {
               );
             },
           ),
+          ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Exercises'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => exercises()),
+                );
+              }),
           ListTile(
             leading: Icon(Icons.person),
             title: Text('10 Steps'),
