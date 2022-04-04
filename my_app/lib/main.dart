@@ -4,7 +4,7 @@ import 'package:my_app/views/dashboard.dart';
 import 'package:redux/redux.dart';
 import 'package:my_app/routes/router.gr.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'NavBar.dart';
+import '/views/NavBar.dart';
 import 'state/appState.dart';
 
 void main() {
