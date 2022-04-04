@@ -24,7 +24,7 @@ class exerciseAll extends StatelessWidget {
         home: Scaffold(
             backgroundColor: Colors.white,
             body: Center(
-                child: Column(
+                child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
