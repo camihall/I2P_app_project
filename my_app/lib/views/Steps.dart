@@ -10,7 +10,7 @@ class StepsRoute extends StatelessWidget {
       title: 'About the SMART Recovery Plan',
       home: Scaffold(
           appBar: AppBar(
-            title: const Text('New Page'),
+            title: const Text('About the SMART Recovery Plan'),
             backgroundColor: Colors.green,
           ),
           body: const StepsList()),
