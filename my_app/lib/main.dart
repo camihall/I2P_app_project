@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
+
+import 'package:my_app/routes/route_guard.dart';
+import 'package:redux/redux.dart';
+import 'package:my_app/routes/router.gr.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'state/appState.dart';
 import 'NavBar.dart';
 import 'home.dart';
-
 void main() {
-  runApp(const MyApp());
-}
+  // Create your store as a final variable in the main function or inside a
+  // State object. This works better with Hot Reload than creating it directly
+  // in the `build` function.
+
+  runApp(App(
+    title: 'I2P App',
+    store: store,
+  ));
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -29,41 +42,35 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(title: 'New Page'),
     );
   }
+
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
+class App extends StatefulWidget {
+  final Store<AppState> store;
   final String title;
 
+  const App({Key? key, required this.store, required this.title})
+      : super(key: key);
+
+  static _AppState of(BuildContext context) =>
+      context.findAncestorStateOfType<_AppState>()!;
+
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<StatefulWidget> createState() => _AppState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  var _username = "username";
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-    });
-  }
-
+class _AppState extends State<App> {
+  late final _appRouter = AppRouter(routeGuard: RouteGuard());
   @override
   Widget build(BuildContext context) {
+
+    return StoreProvider<AppState>(
+      store: store,
+      child: MaterialApp.router(
+          title: widget.title,
+          routeInformationParser: _appRouter.defaultRouteParser(),
+          routerDelegate: _appRouter.delegate()),
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -127,6 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.green,
       ), // This trailing comma makes auto-formatting nicer for build methods.
       drawer: NavBar(),
+
     );
   }
 }
