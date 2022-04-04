@@ -5,7 +5,7 @@ import 'package:my_app/state/appState.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import '../NavBar.dart';
+import 'NavBar.dart';
 
 // ignore: must_be_immutable
 class Dashboard extends StatefulWidget {
@@ -87,6 +87,7 @@ class _DashboardState extends State<Dashboard> {
                               ])
                         ],
                       ))),
+              appBar: AppBar(title: Text("A New Page")),
               drawer: NavBar());
         });
   }

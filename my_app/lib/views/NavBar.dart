@@ -33,13 +33,6 @@ class NavBar extends StatelessWidget {
         // Remove padding
         padding: EdgeInsets.zero,
         children: [
-          UserAccountsDrawerHeader(
-            accountName: Text('test'),
-            accountEmail: Text('test'),
-            decoration: BoxDecoration(
-              color: Colors.green,
-            ),
-          ),
           ListTile(
               leading: Icon(Icons.home),
               title: Text('Home'),
