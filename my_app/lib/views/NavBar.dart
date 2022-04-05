@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 // import 'package:url_launcher/url_launcher.dart';
 import 'Progress.dart';
-import 'main.dart';
+import '../main.dart';
 import 'sos.dart';
 import 'Steps.dart';
-import 'views/dashboard.dart';
+import 'dashboard.dart';
 
 class SettingsRoute extends StatelessWidget {
   @override
