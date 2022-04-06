@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'NavBar.dart';
 
 class exercises extends StatelessWidget {
   @override
@@ -7,7 +8,10 @@ class exercises extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
       title: 'Exercises',
-      home: Scaffold(body: exerciseAll()),
+      home: Scaffold(
+          body: exerciseAll(),
+          appBar: AppBar(title: Text("A New Page")),
+          drawer: NavBar()),
     );
   }
 }
