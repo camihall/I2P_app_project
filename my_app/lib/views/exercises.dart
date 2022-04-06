@@ -10,7 +10,7 @@ class exercises extends StatelessWidget {
       title: 'Exercises',
       home: Scaffold(
           body: exerciseAll(),
-          appBar: AppBar(title: Text("A New Page")),
+          appBar: AppBar(title: Text("Exercises")),
           drawer: NavBar()),
     );
   }
@@ -53,21 +53,28 @@ class exerciseBox extends StatelessWidget {
   String exerciseName;
 
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * .25,
-      width: MediaQuery.of(context).size.width * .20,
-      color: Colors.transparent,
-      child: Container(
-          decoration: BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.all(Radius.circular(10.0))),
-          child: new Center(
-            child: new Text(
-              exerciseName,
-              style: TextStyle(color: Colors.white, fontSize: 22),
-              textAlign: TextAlign.center,
-            ),
-          )),
-    );
+    return GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => exercises()),
+          );
+        },
+        child: Container(
+          height: MediaQuery.of(context).size.height * .25,
+          width: MediaQuery.of(context).size.width * .20,
+          color: Colors.transparent,
+          child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
+              child: new Center(
+                child: new Text(
+                  exerciseName,
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                  textAlign: TextAlign.center,
+                ),
+              )),
+        ));
   }
 }

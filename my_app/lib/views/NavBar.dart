@@ -54,7 +54,7 @@ class NavBar extends StatelessWidget {
             },
           ),
           ListTile(
-              leading: Icon(Icons.home),
+              leading: Icon(Icons.aod),
               title: Text('Exercises'),
               onTap: () {
                 Navigator.push(
