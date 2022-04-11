@@ -3,6 +3,18 @@ import 'package:flutter/material.dart';
 class SOSRoute extends StatelessWidget{
   @override
   Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('SOS'),
+      ),
+      body: MyDataTable(),
+    );
+  }
+}
+
+class MyDataTable extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return DataTable(
       columns: [
         DataColumn(label: Text('Contact Name')),
