@@ -7,6 +7,7 @@ class StepsRoute extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
       scrollBehavior: const ConstantScrollBehavior(),
+
       title: 'About the SMART Recovery Plan',
       home: Scaffold(
           appBar: AppBar(
@@ -127,3 +128,5 @@ const stepslst = [
 //           "We are ready to be thankful for the life we have and be proud of ourselves.",
 //       stepnum: "Step 10"),
 // ];
+
+         
