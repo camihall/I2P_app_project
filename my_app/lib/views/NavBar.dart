@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 // import 'package:url_launcher/url_launcher.dart';
-import 'Progress.dart';
-import '../main.dart';
+import 'progress.dart';
 import 'sos.dart';
 import 'Steps.dart';
 import 'dashboard.dart';
