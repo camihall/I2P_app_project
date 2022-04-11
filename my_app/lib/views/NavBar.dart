@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:my_app/views/exercises.dart';
 // import 'package:flutter/services.dart';
 // import 'package:url_launcher/url_launcher.dart';
-import '../Progress.dart';
+
+import './Progress.dart';
 import '../main.dart';
-import '../sos.dart';
-import '../Steps.dart';
+import './sos.dart';
+import './Steps.dart';
+
+import 'progress.dart';
+import 'sos.dart';
+import 'Steps.dart';
+
 import 'dashboard.dart';
 
 class SettingsRoute extends StatelessWidget {
@@ -43,7 +49,7 @@ class NavBar extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const Dashboard()),
                 );
               }),
-          ListTile(
+          /*ListTile(
             leading: Icon(Icons.person),
             title: Text('Progress'),
             onTap: () {
@@ -52,7 +58,7 @@ class NavBar extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => ProgressRoute()),
               );
             },
-          ),
+          ),*/
           ListTile(
               leading: Icon(Icons.aod),
               title: Text('Exercises'),
@@ -64,7 +70,7 @@ class NavBar extends StatelessWidget {
               }),
           ListTile(
             leading: Icon(Icons.person),
-            title: Text('10 Steps'),
+            title: Text('About'),
             onTap: () {
               Navigator.push(
                 context,
