@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:my_app/routes/router.gr.dart';
 
@@ -31,40 +31,6 @@ class Paragraph extends StatelessWidget {
       );
 }
 
-class IconAndDetail extends StatelessWidget {
-  const IconAndDetail(this.icon, this.detail);
-  final IconData icon;
-  final String detail;
-
-  @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            Icon(icon),
-            const SizedBox(width: 8),
-            Text(
-              detail,
-              style: const TextStyle(fontSize: 18),
-            )
-          ],
-        ),
-      );
-}
-
-class StyledButton extends StatelessWidget {
-  const StyledButton({required this.child, required this.onPressed});
-  final Widget child;
-  final void Function() onPressed;
-
-  @override
-  Widget build(BuildContext context) => OutlinedButton(
-        style: OutlinedButton.styleFrom(
-            side: const BorderSide(color: Colors.deepPurple)),
-        onPressed: onPressed,
-        child: child,
-      );
-}
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({Key? key}) : super(key: key);

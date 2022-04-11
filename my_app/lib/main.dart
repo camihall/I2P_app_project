@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/components/MenuController.dart';
 import 'package:my_app/routes/route_guard.dart';
-import 'package:my_app/views/dashboard.dart';
 import 'package:redux/redux.dart';
 import 'package:my_app/routes/router.gr.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'NavBar.dart';
 import 'state/appState.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   // Create your store as a final variable in the main function or inside a
   // State object. This works better with Hot Reload than creating it directly
   // in the `build` function.
 
-  runApp(App(
+  runApp(Root(
     title: 'I2P App',
     store: store,
   ));
+}
+
+class Root extends StatelessWidget {
+  final Store<AppState> store;
+  final String title;
+
+  const Root({Key? key, required this.store, required this.title}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (context) => MenuController(),
+          ),
+        ],
+        child: App(store: store, title: title,),
+      );
+  }
+  
 }
 
 class App extends StatefulWidget {
