@@ -54,7 +54,7 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.person),
-            title: Text('10 Steps'),
+            title: Text('About'),
             onTap: () {
               Navigator.push(
                 context,
