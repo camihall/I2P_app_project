@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/components/SideMenu.dart';
 import 'NavBar.dart';
 
 class exercises extends StatelessWidget {
@@ -11,7 +12,7 @@ class exercises extends StatelessWidget {
       home: Scaffold(
           body: exerciseAll(),
           appBar: AppBar(title: Text("Exercises")),
-          drawer: NavBar()),
+          drawer: SideMenu()),
     );
   }
 }
