@@ -1,9 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import '../main.dart';
 import 'authentication.dart';
-import '../db/database.dart';
 import '../state/appState.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'googleButton.dart';
@@ -47,7 +45,7 @@ class _LoginPageState extends State<Login> {
     if (widget.onLoginCallback != null) {
       onLoginCallback = widget.onLoginCallback!;
     } else {
-      onLoginCallback = (_) {AutoRouter.of(context).push(DashboardRoute());};
+      onLoginCallback = (_) {AutoRouter.of(context).push(const DashboardRoute());};
     }
     super.initState();
   }
@@ -189,7 +187,6 @@ class _LoginPageState extends State<Login> {
                       try {
                           User? user = await emailSignIn(textControllerEmail.text, textControllerPassword.text);
                         if (user == null) {
-                          print("lol");
                         } else {
                           await store.dispatch(getFirebaseUser);
                           onLoginCallback.call(true);

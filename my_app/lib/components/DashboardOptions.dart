@@ -2,27 +2,54 @@ import 'package:my_app/responsive.dart';
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import 'DashboardOptionCard.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:my_app/routes/router.gr.dart';
 
-List option = [
-  const DashboardOptionCard(
+
+class DashboardOption {
+  final String svgSrc, title;
+  final dynamic route;
+
+  String get svgSource {
+    return svgSrc;
+  }
+
+  String get optionTitle {
+    return title;
+  }
+
+  dynamic get destination {
+    return route;
+  }
+
+  DashboardOption({required this.svgSrc, required this.title, required this.route});
+}
+
+List options = [
+  DashboardOption(
     svgSrc: "assets/icons/Journal.svg",
     title: "Journal",
+    route: const JournalRoute()
   ),
-  const DashboardOptionCard(
+  DashboardOption(
     svgSrc: "assets/icons/CheckIn.svg",
     title: "Daily Check-In",
+    route: const CheckInRoute()
   ),
-  const DashboardOptionCard(
+  DashboardOption(
     svgSrc: "assets/icons/Progress.svg",
     title: "Progress Tracking",
+    route: const ProgressRoute()
   ),
-  const DashboardOptionCard(
+  DashboardOption(
     svgSrc: "assets/icons/Meditation.svg",
     title: "Meditation",
+    route: const MeditationRoute()
   ),
-  const DashboardOptionCard(
+  DashboardOption(
     svgSrc: "assets/icons/Resources.svg",
     title: "Resources",
+    route: const ResourcesRoute()
   ),
 ];
 
@@ -79,14 +106,14 @@ class DashboardOptionCardGridView extends StatelessWidget {
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: option.length,
+      itemCount: options.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: defaultPadding,
         mainAxisSpacing: defaultPadding,
         childAspectRatio: childAspectRatio,
       ),
-      itemBuilder: (context, index) => option[index],
+      itemBuilder: (context, index) => DashboardOptionCard(svgSrc: options[index].svgSource, title: options[index].optionTitle, onClick: () => AutoRouter.of(context).push(options[index].destination),)
     );
   }
 }

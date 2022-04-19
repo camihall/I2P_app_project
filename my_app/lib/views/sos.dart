@@ -5,18 +5,20 @@ class SOSRoute extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text('SOS'),
+        title: const Text('SOS'),
       ),
-      body: MyDataTable(),
+      body: const MyDataTable(),
     );
   }
 }
 
 class MyDataTable extends StatelessWidget {
+  const MyDataTable({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return DataTable(
-      columns: [
+      columns: const [
         DataColumn(label: Text('Contact Name')),
         DataColumn(label: Text('Number')),
         //DataColumn(lable: icon(phone)),
@@ -24,7 +26,7 @@ class MyDataTable extends StatelessWidget {
         DataColumn(label: Text('Website')),
         DataColumn(label: Text('Description')),
       ],
-      rows: [
+      rows: const [
         DataRow(cells: [
           DataCell(Text('Parents For Peace')),
           DataCell(Text('1-844-49-PEACE')),
