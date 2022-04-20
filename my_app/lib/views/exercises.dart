@@ -120,40 +120,45 @@ class questionBox extends StatelessWidget {
 
 final questions = [
   questionBox(
-    qText: 'Question 1',
+    qText: 'What makes you think it might be time for a change?',
   ),
   questionBox(
-    qText: 'Question 2',
+    qText: 'What was being in an extremist movement like for you?',
   ),
   questionBox(
-    qText: 'Question 3',
+    qText: 'How has your time in an extremist movement impacted you?',
   ),
   questionBox(
-    qText: 'Question 4',
+    qText:
+        'What things do you think you would need to do to help yourself grow?',
   ),
   questionBox(
-    qText: 'Question 5',
+    qText:
+        'How do you feel you have grown and changed in the [amount of time]?',
   ),
   questionBox(
-    qText: 'Question 6',
+    qText: 'What makes you think you need to change your actions?',
   ),
   questionBox(
-    qText: 'Question 7',
+    qText: 'What will happen if you don\'t change your current actions',
   ),
   questionBox(
-    qText: 'Question 8',
+    qText: 'What will be different if you disengage from extremist activities',
   ),
   questionBox(
-    qText: 'Question 9',
+    qText:
+        'If you were to decide to change, what would you have to do to make that happen?',
   ),
   questionBox(
-    qText: 'Question 10',
+    qText:
+        'What is the BEST thing you could imagine that could result from changing?',
   ),
   questionBox(
-    qText: 'Question 11',
+    qText: 'What can you do to avoid urges?',
   ),
   questionBox(
-    qText: 'Question 12',
+    qText:
+        'What positive things occurred during your time in the movement, and how can those positive things be achieved or gained outside extremism?',
   ),
 ];
 
