@@ -74,26 +74,22 @@ class DashboardMain extends StatelessWidget {
                       spacing: 10,
                       direction: Axis.horizontal,
                       children: [
-                        Expanded(
-                          child: SizedBox(
-                              width: 600,
-                              height: 500,
-                              child: Container(
-                                padding: const EdgeInsets.all(50),
-                                child: const Card(
-                                  child: Calendar(),
-                                ),
-                              )),
-                        ),
-                        Expanded(
-                          child: SizedBox(
-                              width: 600,
-                              height: 500,
-                              child: Container(
-                                padding: const EdgeInsets.all(50),
-                                child: const Card(),
-                              )),
-                        ),
+                        SizedBox(
+                            width: 600,
+                            height: 500,
+                            child: Container(
+                              padding: const EdgeInsets.all(50),
+                              child: const Card(
+                                child: Calendar(),
+                              ),
+                            )),
+                        SizedBox(
+                            width: 600,
+                            height: 500,
+                            child: Container(
+                              padding: const EdgeInsets.all(50),
+                              child: const Card(),
+                            )),
                       ],
                     ),
                   ),

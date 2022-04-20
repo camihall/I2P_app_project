@@ -59,136 +59,132 @@ class Journal extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(15)),
                               elevation: 10,
                               child: Container(
-                                  padding: const EdgeInsets.all(defaultPadding),
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                padding: const EdgeInsets.all(defaultPadding),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Text(
+                                      "Today",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    const Text("April 17, 2022"),
+                                    const SizedBox(height: 10),
+                                    Card(
+                                      color: const Color(0xffB1CEBF),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      elevation: 2,
+                                      child: Container(
+                                        padding: const EdgeInsets.all(
+                                            defaultPadding),
+                                        child: const Text(
+                                                "What are you looking forward to? What are ways you are going to achieve this?"),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    TextField(
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          borderSide: const BorderSide(
+                                            color: Colors.transparent,
+                                            width: 2,
+                                          ),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          borderSide: const BorderSide(
+                                            width: 2,
+                                            color: Color(0xffB1CEBF),
+                                          ),
+                                        ),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          borderSide: const BorderSide(
+                                            color: Colors.transparent,
+                                            width: 2,
+                                          ),
+                                        ),
+                                        filled: true,
+                                        hintStyle: TextStyle(
+                                          color: Colors.blueGrey[300],
+                                        ),
+                                        hintText: "Title ...",
+                                        fillColor: Colors.white,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    TextField(
+                                      minLines: 11,
+                                      maxLines: null, // make true multiline
+                                      keyboardType: TextInputType.multiline,
+                                      textInputAction: TextInputAction.newline,
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          borderSide: const BorderSide(
+                                            color: Colors.transparent,
+                                            width: 2,
+                                          ),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          borderSide: const BorderSide(
+                                            width: 2,
+                                            color: Color(0xffB1CEBF),
+                                          ),
+                                        ),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          borderSide: BorderSide(
+                                            color: Colors.blueGrey[300]!,
+                                            width: 2,
+                                          ),
+                                        ),
+                                        filled: true,
+                                        hintStyle: TextStyle(
+                                          color: Colors.blueGrey[300],
+                                        ),
+                                        hintText:
+                                            "Write down your thoughts here ...",
+                                        fillColor: Colors.white,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    ButtonBar(
+                                      alignment: MainAxisAlignment.end,
                                       children: [
-                                        const Text(
-                                          "Today",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        const SizedBox(height: 10),
-                                        const Text("April 17, 2022"),
-                                        const SizedBox(height: 10),
-                                        Card(
-                                          color: const Color(0xffB1CEBF),
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(15)),
-                                          elevation: 2,
-                                          child: Container(
-                                            padding: const EdgeInsets.all(
-                                                defaultPadding),
-                                            child: const Flexible(
-                                                child: Text(
-                                                    "What are you looking forward to? What are ways you are going to achieve this?")),
+                                        TextButton(
+                                          style: TextButton.styleFrom(
+                                            primary: const Color(
+                                                0xff0B3F24), // Text Color
                                           ),
+                                          child: const Text('Save'),
+                                          onPressed: () {/* ... */},
                                         ),
-                                        const SizedBox(height: 10),
-                                        TextField(
-                                          decoration: InputDecoration(
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 2,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                width: 2,
-                                                color: Color(0xffB1CEBF),
-                                              ),
-                                            ),
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 2,
-                                              ),
-                                            ),
-                                            filled: true,
-                                            hintStyle: TextStyle(
-                                              color: Colors.blueGrey[300],
-                                            ),
-                                            hintText: "Title ...",
-                                            fillColor: Colors.white,
+                                        TextButton(
+                                          style: TextButton.styleFrom(
+                                            primary: const Color(
+                                                0xff0B3F24), // Text Color
                                           ),
-                                        ),
-                                        const SizedBox(height: 10),
-                                        TextField(
-                                          minLines: 11,
-                                          maxLines: null, // make true multiline
-                                          keyboardType: TextInputType.multiline,
-                                          textInputAction:
-                                              TextInputAction.newline,
-                                          decoration: InputDecoration(
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 2,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                width: 2,
-                                                color: Color(0xffB1CEBF),
-                                              ),
-                                            ),
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              borderSide: BorderSide(
-                                                color: Colors.blueGrey[300]!,
-                                                width: 2,
-                                              ),
-                                            ),
-                                            filled: true,
-                                            hintStyle: TextStyle(
-                                              color: Colors.blueGrey[300],
-                                            ),
-                                            hintText:
-                                                "Write down your thoughts here ...",
-                                            fillColor: Colors.white,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 10),
-                                        ButtonBar(
-                                          alignment: MainAxisAlignment.end,
-                                          children: [
-                                            TextButton(
-                                              style: TextButton.styleFrom(
-                                                primary: const Color(
-                                                    0xff0B3F24), // Text Color
-                                              ),
-                                              child: const Text('Save'),
-                                              onPressed: () {/* ... */},
-                                            ),
-                                            TextButton(
-                                              style: TextButton.styleFrom(
-                                                primary: const Color(
-                                                    0xff0B3F24), // Text Color
-                                              ),
-                                              child: const Text(
-                                                  'View previous entries'),
-                                              onPressed: () {/* ... */},
-                                            )
-                                          ],
+                                          child: const Text(
+                                              'View previous entries'),
+                                          onPressed: () {/* ... */},
                                         )
                                       ],
-                                    ),
-                                  )))),
+                                    )
+                                  ],
+                                ),
+                              ))),
                     ],
                   ),
                 ],
