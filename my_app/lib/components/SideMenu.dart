@@ -1,11 +1,17 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:my_app/routes/router.gr.dart';
 
 import '../views/exercises.dart';
 
 class SideMenu extends StatelessWidget {
-  const SideMenu({
+  BuildContext context;
+  SideMenu({
     Key? key,
+    required this.context,
   }) : super(key: key);
 
   @override
@@ -23,7 +29,9 @@ class SideMenu extends StatelessWidget {
           DrawerListTile(
             title: "Dashboard",
             svgSrc: "assets/icons/menu_dashbord.svg",
-            press: () {},
+            press: () {
+              this.context.navigateTo(const DashboardRoute());
+            },
           ),
           DrawerListTile(
             title: "Profile",

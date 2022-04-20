@@ -1,14 +1,17 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../constants.dart';
 
 class DashboardOptionCard extends StatelessWidget {
   final String? svgSrc, title;
+  final void Function() onClick;
   const DashboardOptionCard({
     Key? key,
-    this.svgSrc,
-    this.title,
+    required this.svgSrc,
+    required this.title,
+    required this.onClick
   }) : super(key: key);
 
   @override
@@ -18,9 +21,7 @@ class DashboardOptionCard extends StatelessWidget {
           elevation: 3,
           child: InkWell(
               splashColor: const Color(0xffB1CEBF),
-              onTap: () {
-                debugPrint('Card tapped.');
-              },
+              onTap: onClick,
               child: Container(
                 padding: const EdgeInsets.all(defaultPadding),
                 width: 200,

@@ -4,7 +4,6 @@ import 'package:my_app/routes/route_guard.dart';
 import 'package:redux/redux.dart';
 import 'package:my_app/routes/router.gr.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'views/NavBar.dart';
 import 'state/appState.dart';
 import 'package:provider/provider.dart';
 

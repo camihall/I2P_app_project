@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:my_app/responsive.dart';
 
 
-class Progress extends StatelessWidget {
-  const Progress({Key? key}) : super(key: key);
+class Resources extends StatelessWidget {
+  const Resources({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class Progress extends StatelessWidget {
                                   context.read<MenuController>().controlMenu,
                             ),
                           const SizedBox(width: 30),
-                          const Text("Progress",
+                          const Text("Resources",
                               style: TextStyle(
                                   color: Color(0xff0B3F24),
                                   fontWeight: FontWeight.bold,

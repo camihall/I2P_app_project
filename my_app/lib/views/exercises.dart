@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '../components/DashboardHeader.dart';
 import '../components/MenuController.dart';
 import '../responsive.dart';
-import 'NavBar.dart';
 
 class exercises extends StatelessWidget {
   @override
@@ -20,10 +19,10 @@ class exercises extends StatelessWidget {
           children: [
             // We want this side menu only for large screen
             if (Responsive.isDesktop(context))
-              const Expanded(
+              Expanded(
                 // default flex = 1
                 // and it takes 1/6 part of the screen
-                child: SideMenu(),
+                child: SideMenu(context: context),
               ),
             Expanded(
                 // It takes 5/6 part of the screen
