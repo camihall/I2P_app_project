@@ -209,3 +209,15 @@ class exerciseBox extends StatelessWidget {
     );
   }
 }
+
+class textBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: const InputDecoration(
+        border: UnderlineInputBorder(),
+        labelText: 'Type your answer here',
+      ),
+    );
+  }
+}
