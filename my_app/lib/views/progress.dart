@@ -12,6 +12,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import '../components/DashboardHeader.dart';
 import '../components/DashboardOptions.dart';
 import '../components/MenuController.dart';
+import '../components/ProgressBarChart.dart';
 
 // // ignore: must_be_immutable
 class ProgressRoute extends StatefulWidget {
@@ -24,6 +25,7 @@ class ProgressRoute extends StatefulWidget {
 }
 
 class _ProgressRoute extends State<ProgressRoute> {
+  List<int> mood_count = [1, 8, 3, 7, 12, 5];
   @override
   void initState() {
     super.initState();
@@ -112,48 +114,110 @@ class _ProgressRoute extends State<ProgressRoute> {
                                     ],
                                   )),
                             ),
-                            Container(
-                                child: Column(
-                              children: [
-                                Row(
-                                  // mainAxisAlignment: MainAxisAlignment.start,
-                                  children: const [
-                                    SizedBox(width: 50),
-                                    Text(
-                                      "Overview",
-                                      style: TextStyle(
-                                          color: Color(0xff0B3F24),
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 10),
-                                Row(children: [
-                                  SizedBox(width: 50),
-                                  ProgressStreakCard(
-                                      title: "Current Streak", numdays: 10),
-                                  SizedBox(width: 10),
-                                  ProgressStreakCard(
-                                      title: "Longest Streak", numdays: 24),
-                                ]),
-                                SizedBox(height: 10),
-                                Row(
-                                  children: [
+                            // Container(
+                            //     child:
+                            Row(children: [
+                              Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      SizedBox(width: 50),
+                                      Text(
+                                        "Overview",
+                                        style: TextStyle(
+                                            color: Color(0xff0B3F24),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
+                                  Row(children: [
                                     SizedBox(width: 50),
                                     ProgressStreakCard(
-                                      title: "Journal Entries",
-                                      numdays: 30,
-                                    ),
+                                        title: "Current Streak", numdays: 10),
                                     SizedBox(width: 10),
                                     ProgressStreakCard(
-                                      title: "Guided Questions",
-                                      numdays: 35,
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ))
+                                        title: "Longest Streak", numdays: 24),
+                                  ]),
+                                  SizedBox(height: 10),
+                                  Row(
+                                    children: [
+                                      SizedBox(width: 50),
+                                      ProgressStreakCard(
+                                        title: "Journal Entries",
+                                        numdays: 30,
+                                      ),
+                                      SizedBox(width: 10),
+                                      ProgressStreakCard(
+                                        title: "Guided Questions",
+                                        numdays: 35,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      SizedBox(width: 50),
+                                      Text(
+                                        "Monthly Mood Tracker",
+                                        style: TextStyle(
+                                            color: Color(0xff0B3F24),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
+                                  Row(
+                                    children: [
+                                      SizedBox(width: 30),
+                                      Card(
+                                          elevation: 3,
+                                          child: InkWell(
+                                              splashColor:
+                                                  const Color(0xffB1CEBF),
+                                              onTap: () {
+                                                debugPrint('Card tapped.');
+                                              },
+                                              child: Container(
+                                                // padding: const EdgeInsets.all(defaultPadding),
+                                                width: 450,
+                                                height: 270,
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    MoodTrackerBar(title: '',)
+                                                    // SizedBox(height: 10),
+                                                    // Container(
+                                                    //   width: 100,
+                                                    //   height: 80,
+                                                    //   decoration:
+                                                    //       const BoxDecoration(
+                                                    //     borderRadius:
+                                                    //         BorderRadius.all(
+                                                    //             Radius.circular(
+                                                    //                 10)),
+                                                    //   ),
+                                                    // ),
+                                                  ],
+                                                ),
+                                              ))),
+                                      // );
+                                    ],
+                                  )
+                                ],
+                              )
+                            ])
+
+                            // )
                           ],
                         ),
                       ),
@@ -174,11 +238,6 @@ class _ProgressRouteViewModel {
     return _ProgressRouteViewModel(userData: store.state.userData!);
   }
 }
-
-
-
-
-
 
 // import 'package:flutter/material.dart';
 
