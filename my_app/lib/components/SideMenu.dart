@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../views/exercises.dart';
+
 class SideMenu extends StatelessWidget {
   const SideMenu({
     Key? key,
@@ -11,8 +13,7 @@ class SideMenu extends StatelessWidget {
     return Drawer(
       backgroundColor: const Color(0xff0B3F24),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(30)),
+        borderRadius: BorderRadius.only(bottomRight: Radius.circular(30)),
       ),
       child: ListView(
         children: [
@@ -30,9 +31,14 @@ class SideMenu extends StatelessWidget {
             press: () {},
           ),
           DrawerListTile(
-            title: "About",
+            title: "Exercises",
             svgSrc: "assets/icons/menu_tran.svg",
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => exercises()),
+              );
+            },
           ),
           DrawerListTile(
             title: "FAQ",

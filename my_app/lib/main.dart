@@ -4,6 +4,7 @@ import 'package:my_app/routes/route_guard.dart';
 import 'package:redux/redux.dart';
 import 'package:my_app/routes/router.gr.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'views/NavBar.dart';
 import 'state/appState.dart';
 import 'package:provider/provider.dart';
 
@@ -22,19 +23,22 @@ class Root extends StatelessWidget {
   final Store<AppState> store;
   final String title;
 
-  const Root({Key? key, required this.store, required this.title}) : super(key: key);
+  const Root({Key? key, required this.store, required this.title})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuController(),
-          ),
-        ],
-        child: App(store: store, title: title,),
-      );
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => MenuController(),
+        ),
+      ],
+      child: App(
+        store: store,
+        title: title,
+      ),
+    );
   }
-  
 }
 
 class App extends StatefulWidget {
