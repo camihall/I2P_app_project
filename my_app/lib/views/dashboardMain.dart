@@ -63,21 +63,43 @@ class DashboardMain extends StatelessWidget {
               child: const DashboardOptions(),
             ),
             const SizedBox(height: 20),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: SizedBox(
-                      child: Container(
-                    padding: const EdgeInsets.only(left: 50, right: 50),
-                    child: const Calendar(),
-                  )),
-                ),
-                const Card(
-                  child : SizedBox(height: 300, width: 300,)
-
-                )
-              ],
-            )
+            Container(
+              padding: const EdgeInsets.only(left: 50, right: 50),
+              child: Row(
+                children: <Widget>[
+                  Flexible(
+                    child: Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.start,
+                      alignment: WrapAlignment.start,
+                      spacing: 10,
+                      direction: Axis.horizontal,
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                              width: 600,
+                              height: 500,
+                              child: Container(
+                                padding: const EdgeInsets.all(50),
+                                child: const Card(
+                                  child: Calendar(),
+                                ),
+                              )),
+                        ),
+                        Expanded(
+                          child: SizedBox(
+                              width: 600,
+                              height: 500,
+                              child: Container(
+                                padding: const EdgeInsets.all(50),
+                                child: const Card(),
+                              )),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
