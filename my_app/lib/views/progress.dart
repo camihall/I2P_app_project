@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:my_app/components/ProgressCountCard.dart';
 import 'package:my_app/components/ProgressStreakCard.dart';
 import 'package:my_app/components/SideMenu.dart';
 import 'package:my_app/responsive.dart';
@@ -122,7 +123,6 @@ class _ProgressRoute extends State<ProgressRoute> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: const [
-                                      SizedBox(width: 50),
                                       Text(
                                         "Overview",
                                         style: TextStyle(
@@ -134,7 +134,7 @@ class _ProgressRoute extends State<ProgressRoute> {
                                   ),
                                   SizedBox(height: 10),
                                   Row(children: [
-                                    SizedBox(width: 50),
+                                    SizedBox(width: 150),
                                     ProgressStreakCard(
                                         title: "Current Streak", numdays: 10),
                                     SizedBox(width: 10),
@@ -144,39 +144,56 @@ class _ProgressRoute extends State<ProgressRoute> {
                                   SizedBox(height: 10),
                                   Row(
                                     children: [
-                                      SizedBox(width: 50),
-                                      ProgressStreakCard(
-                                        title: "Journal Entries",
-                                        numdays: 30,
-                                      ),
-                                      SizedBox(width: 10),
-                                      ProgressStreakCard(
-                                        title: "Guided Questions",
-                                        numdays: 35,
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: const [
-                                      SizedBox(width: 50),
-                                      Text(
-                                        "Monthly Mood Tracker",
-                                        style: TextStyle(
-                                            color: Color(0xff0B3F24),
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 15),
-                                      ),
+                                      SizedBox(width: 150),
+                                      ProgressCountCard(
+                                          title: "Journal Entries", numdays: 30)
                                     ],
                                   ),
                                   SizedBox(height: 10),
                                   Row(
                                     children: [
-                                      SizedBox(width: 30),
+                                      SizedBox(width: 150),
+                                      ProgressCountCard(
+                                          title: "Guided Questions",
+                                          numdays: 35)
+                                    ],
+                                  )
+
+                                  // Row(
+                                  //   children: [
+                                  //     SizedBox(width: 50),
+                                  //     ProgressStreakCard(
+                                  //       title: "Journal Entries",
+                                  //       numdays: 30,
+                                  //     ),
+                                  //     SizedBox(width: 10),
+                                  //     ProgressStreakCard(
+                                  //       title: "Guided Questions",
+                                  //       numdays: 35,
+                                  //     ),
+                                  //   ],
+                                  // )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  // Row(
+                                  //   // mainAxisAlignment: MainAxisAlignment.start,
+                                  //   children: [
+                                  //     Text(
+                                  //       "Monthly Mood Tracker",
+                                  //       textAlign: TextAlign.left,
+                                  //       style: TextStyle(
+                                  //           color: Color(0xff0B3F24),
+                                  //           fontWeight: FontWeight.bold,
+                                  //           fontSize: 15),
+                                  //     ),
+                                  //   ],
+                                  // ),
+                                  SizedBox(height: 10),
+                                  Row(
+                                    children: [
+                                      SizedBox(width: 50),
                                       Card(
                                           elevation: 3,
                                           child: InkWell(
@@ -187,14 +204,36 @@ class _ProgressRoute extends State<ProgressRoute> {
                                               },
                                               child: Container(
                                                 // padding: const EdgeInsets.all(defaultPadding),
-                                                width: 450,
-                                                height: 270,
+                                                width: 600,
+                                                height: 450,
                                                 child: Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.center,
                                                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
-                                                    MoodTrackerBar(title: '',)
+                                                    SizedBox(height: 5),
+                                                    Row(
+                                                      // mainAxisAlignment: MainAxisAlignment.start,
+                                                      children: [
+                                                        SizedBox(width: 5),
+                                                        Text(
+                                                          "Monthly Mood Tracker",
+                                                          textAlign:
+                                                              TextAlign.left,
+                                                          style: TextStyle(
+                                                              color: Color(
+                                                                  0xff0B3F24),
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 15),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    SizedBox(height: 5),
+                                                    MoodTrackerBar(
+                                                      title: '',
+                                                    )
                                                     // SizedBox(height: 10),
                                                     // Container(
                                                     //   width: 100,

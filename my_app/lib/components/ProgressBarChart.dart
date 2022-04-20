@@ -57,30 +57,33 @@ class _MoodTrackerBarState extends State<MoodTrackerBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 450,
-        height: 270,
+        width: 600,
+        height: 400,
         child: Scaffold(
-          body: SfCartesianChart(
-            // plotAreaBackgroundColor: Color(0xff0B3F24),
-            // title: ChartTitle(text: 'Monthly Mood Tracker'),
-            // legend: Legend(isVisible: true),
-            tooltipBehavior: _tooltipBehavior,
-            series: <ChartSeries>[
-              BarSeries<MoodData, String>(
-                color: Color(0xff0B3F24),
-                  // name: 'Mood',
-                  dataSource: _chartData,
-                  xValueMapper: (MoodData Mood, _) => Mood.Mood,
-                  yValueMapper: (MoodData Mood, _) => Mood.MoodCount,
-                  // dataLabelSettings: DataLabelSettings(isVisible: true),
-                  // enableTooltip: true
-                  )
-            ],
-            primaryXAxis: CategoryAxis(),
-            primaryYAxis: NumericAxis(
-                edgeLabelPlacement: EdgeLabelPlacement.shift,
-                // numberFormat: NumberFormat.simpleCurrency(decimalDigits: 0),
-                // title: AxisTitle(text: 'Mood in billions of U.S. Dollars')),
+            body: SfCartesianChart(
+          // plotAreaBackgroundColor: Color(0xff0B3F24),
+          // title: ChartTitle(text: 'Monthly Mood Tracker'),
+          // legend: Legend(isVisible: true),
+          tooltipBehavior: _tooltipBehavior,
+          series: <ChartSeries>[
+            ColumnSeries<MoodData, String>(
+                color: Color(0xffB1CEBF),
+                // name: 'Mood',
+                dataSource: _chartData,
+                xValueMapper: (MoodData Mood, _) => Mood.Mood,
+                yValueMapper: (MoodData Mood, _) => Mood.MoodCount,
+                dataLabelSettings: DataLabelSettings(
+                    isVisible: true,
+                    textStyle: TextStyle(
+                        color: Color(0xff0B3F24),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold)))
+          ],
+          primaryXAxis: CategoryAxis(),
+          primaryYAxis: NumericAxis(
+            edgeLabelPlacement: EdgeLabelPlacement.shift,
+            // numberFormat: NumberFormat.simpleCurrency(decimalDigits: 0),
+            // title: AxisTitle(text: 'Mood in billions of U.S. Dollars')),
           ),
           // )
         )));
