@@ -22,19 +22,22 @@ class Root extends StatelessWidget {
   final Store<AppState> store;
   final String title;
 
-  const Root({Key? key, required this.store, required this.title}) : super(key: key);
+  const Root({Key? key, required this.store, required this.title})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuController(),
-          ),
-        ],
-        child: App(store: store, title: title,),
-      );
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => MenuController(),
+        ),
+      ],
+      child: App(
+        store: store,
+        title: title,
+      ),
+    );
   }
-  
 }
 
 class App extends StatefulWidget {

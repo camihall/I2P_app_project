@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:my_app/routes/router.gr.dart';
 
+import '../views/exercises.dart';
+
 class SideMenu extends StatelessWidget {
   BuildContext context;
   SideMenu({
@@ -22,7 +24,7 @@ class SideMenu extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            child: Image.asset("assets/images/logo.png"),
+            child: Image.asset("assets/images/officialLogo.png"),
           ),
           DrawerListTile(
             title: "Dashboard",
@@ -37,9 +39,14 @@ class SideMenu extends StatelessWidget {
             press: () {},
           ),
           DrawerListTile(
-            title: "About",
+            title: "Exercises",
             svgSrc: "assets/icons/menu_tran.svg",
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => exercises()),
+              );
+            },
           ),
           DrawerListTile(
             title: "FAQ",
