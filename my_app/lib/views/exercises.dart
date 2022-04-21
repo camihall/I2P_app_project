@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../components/DashboardHeader.dart';
 import '../components/MenuController.dart';
 import '../responsive.dart';
+import 'textbox.dart';
 
 class exercises extends StatelessWidget {
   @override
@@ -102,18 +103,30 @@ class exerciseAll extends StatelessWidget {
   }
 }
 
+String clickedQ = "";
+
 class questionBox extends StatelessWidget {
   final String qText;
   questionBox({required String qText}) : this.qText = qText;
 
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: () {
+        clickedQ = qText;
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => TxtbxRoute()),
+        );
+      },
+      child: Container(
         height: MediaQuery.of(context).size.height * .04,
         width: MediaQuery.of(context).size.width * .70,
         decoration: BoxDecoration(
             border: Border(
                 bottom: BorderSide(color: Color(0xE7E7E7dd), width: .5))),
-        child: Text(qText));
+        child: Text(qText),
+      )
+    );
   }
 }
 
@@ -214,14 +227,3 @@ class exerciseBox extends StatelessWidget {
   }
 }
 
-class textBox extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: const InputDecoration(
-        border: UnderlineInputBorder(),
-        labelText: 'Type your answer here',
-      ),
-    );
-  }
-}
