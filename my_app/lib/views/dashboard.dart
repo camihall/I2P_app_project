@@ -54,24 +54,28 @@ class _DashboardState extends State<Dashboard> {
           }
           return Scaffold(
             key: context.read<MenuController>().scaffoldKey,
-            drawer: SideMenu(context: context,),
+            drawer: SideMenu(
+              context: context,
+            ),
             body: SafeArea(
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // We want this side menu only for large screen
-                    if (Responsive.isDesktop(context))
-                      Expanded(
-                        // default flex = 1
-                        // and it takes 1/6 part of the screen
-                        child: SideMenu(context: context,),
-                      ),
-                    const Expanded(
-                        // It takes 5/6 part of the screen
-                        flex: 5,
-                        child: AutoRouter(key: routerKey))
-                  ],
-                )),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // We want this side menu only for large screen
+                if (Responsive.isDesktop(context))
+                  Expanded(
+                    // default flex = 1
+                    // and it takes 1/6 part of the screen
+                    child: SideMenu(
+                      context: context,
+                    ),
+                  ),
+                const Expanded(
+                    // It takes 5/6 part of the screen
+                    flex: 5,
+                    child: AutoRouter(key: routerKey))
+              ],
+            )),
           );
         });
   }
