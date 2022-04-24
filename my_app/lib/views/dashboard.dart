@@ -4,6 +4,7 @@ import 'package:my_app/components/SideMenu.dart';
 import 'package:my_app/responsive.dart';
 
 import 'package:my_app/state/appState.dart';
+import 'package:my_app/views/progress.dart';
 import 'package:provider/provider.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -95,6 +96,17 @@ class _DashboardState extends State<Dashboard> {
                                                       .controlMenu,
                                                 ),
                                               const SizedBox(width: 30),
+                                              ElevatedButton(
+                                            child: const Text('Open route'),
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const ProgressRoute()),
+                                              );
+                                            },
+                                          ),
                                               const Text("Welcome",
                                                   style: TextStyle(
                                                       color: Color(0xff0B3F24),

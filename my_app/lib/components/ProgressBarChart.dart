@@ -92,10 +92,10 @@ class _MoodTrackerBarState extends State<MoodTrackerBar> {
   List<MoodData> getChartData() {
     final List<MoodData> chartData = [
       MoodData('Happy', 1),
-      MoodData('Content', 8),
-      MoodData('Neutral', 3),
+      MoodData('Fear', 8),
+      MoodData('Surprised', 3),
       MoodData('Sad', 7),
-      MoodData('Frustrated', 12),
+      MoodData('Disgust', 12),
       MoodData('Angry', 5),
     ];
     return chartData;
