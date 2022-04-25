@@ -44,11 +44,11 @@ class SideMenu extends StatelessWidget {
             title: "Exercises",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
-              AutoRouter.of(context).push(const ExercisesRoute()); 
+              AutoRouter.of(context).push(const ExercisesRoute());
             },
           ),
           DrawerListTile(
-            title: "SOS",
+            title: "Resources",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
               Navigator.push(
