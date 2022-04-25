@@ -95,7 +95,7 @@ class MySquares extends StatelessWidget {
           ),
           Text("Beyond Borders"),
           Image.asset(
-            "assets/images/officialLogo.png",
+            "assets/images/pnetworks.png",
             height: MediaQuery.of(context).size.height * .45,
             width: MediaQuery.of(context).size.width * .45,
           ),
