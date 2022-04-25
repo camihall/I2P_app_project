@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/components/Calendar.dart';
+import 'package:my_app/components/CalendarTodo.dart';
 import '../components/DashboardHeader.dart';
 import '../components/DashboardOptions.dart';
 import '../components/MenuController.dart';
@@ -13,13 +14,15 @@ class DashboardMain extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
+          child: Container(
+        color: const Color(0xffeaefec),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             CustomPaint(
               painter: DashboardHeader(),
               child: SizedBox(
-                  height: 350,
+                  height: 450,
                   child: Column(
                     children: [
                       const SizedBox(height: 100),
@@ -63,42 +66,10 @@ class DashboardMain extends StatelessWidget {
               child: const DashboardOptions(),
             ),
             const SizedBox(height: 20),
-            Container(
-              padding: const EdgeInsets.only(left: 50, right: 50),
-              child: Row(
-                children: <Widget>[
-                  Flexible(
-                    child: Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.start,
-                      alignment: WrapAlignment.start,
-                      spacing: 10,
-                      direction: Axis.horizontal,
-                      children: [
-                        SizedBox(
-                            width: 600,
-                            height: 500,
-                            child: Container(
-                              padding: const EdgeInsets.all(50),
-                              child: const Card(
-                                child: Calendar(),
-                              ),
-                            )),
-                        SizedBox(
-                            width: 600,
-                            height: 500,
-                            child: Container(
-                              padding: const EdgeInsets.all(50),
-                              child: const Card(),
-                            )),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            const CalendarTodo(),
           ],
         ),
-      ),
+      )),
     );
   }
 }

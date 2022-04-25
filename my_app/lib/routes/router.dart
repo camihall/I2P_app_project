@@ -4,6 +4,7 @@ import 'package:my_app/routes/route_guard.dart';
 import 'package:my_app/views/dailyCheckIn.dart';
 import 'package:my_app/views/dashboard.dart';
 import 'package:my_app/views/dashboardMain.dart';
+import 'package:my_app/views/exercises.dart';
 import 'package:my_app/views/journal.dart';
 
 import 'package:my_app/views/landing.dart';
@@ -35,6 +36,7 @@ import '../views/landing.dart';
         AutoRoute(path: 'progress', page: Progress, usesPathAsKey: true),
         AutoRoute(path: 'meditation', page: Meditation, usesPathAsKey: true),
         AutoRoute(path: 'resources', page: Resources, usesPathAsKey: true),
+        AutoRoute(path: 'exercises', page: Exercises, usesPathAsKey: true),
       ],
       guards: [RouteGuard],
     ),
