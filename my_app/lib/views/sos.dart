@@ -4,14 +4,15 @@ import 'package:provider/provider.dart';
 import '../components/DashboardHeader.dart';
 import '../components/MenuController.dart';
 import '../responsive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class SOSRoute extends StatelessWidget{
+class SOSRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      title: 'SOS',
+      title: 'Resources',
       home: Scaffold(
         body: SafeArea(
             child: Row(
@@ -53,7 +54,7 @@ class SOSRoute extends StatelessWidget{
                                               .controlMenu,
                                         ),
                                       const SizedBox(width: 30),
-                                      const Text("Help Contact Resources",
+                                      const Text("Additional Resources",
                                           style: TextStyle(
                                               color: Color(0xff0B3F24),
                                               fontWeight: FontWeight.bold,
@@ -65,7 +66,7 @@ class SOSRoute extends StatelessWidget{
                         ),
                         Container(
                           padding: const EdgeInsets.only(left: 50, right: 50),
-                          child: MyDataTable(),
+                          child: MySquares(),
                         )
                       ],
                     ),
@@ -78,36 +79,82 @@ class SOSRoute extends StatelessWidget{
   }
 }
 
-class MyDataTable extends StatelessWidget {
-  const MyDataTable({Key? key}) : super(key: key);
+class MySquares extends StatelessWidget {
+  const MySquares({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DataTable(
-      columns: const [
-        DataColumn(label: Text('Contact Name')),
-        DataColumn(label: Text('Number')),
-        //DataColumn(lable: icon(phone)),
-        DataColumn(label: Text('Email')),
-        DataColumn(label: Text('Website')),
-        DataColumn(label: Text('Description')),
-      ],
-      rows: const [
-        DataRow(cells: [
-          DataCell(Text('Parents For Peace')),
-          DataCell(Text('1-844-49-PEACE')),
-          DataCell(Text('info@parents4peace.org')),
-          DataCell(Text('https://www.parents4peace.org/')),
-          DataCell(Text('If you or anyone you know is struggling with extremism, we are here to help')),
-        ]),
-        DataRow(cells: [
-          DataCell(Text('BetterHelp')),
-          DataCell(Text('')),
-          DataCell(Text('contact@betterhelp.com')),
-          DataCell(Text('https://www.betterhelp.com')),
-          DataCell(Text('BetterHelp will match you to a licensed therapists whom you can get feedback, advice and guidance from.')),
-        ]),
-      ],
-    );
+    return Container(
+        child: Padding(
+      padding: EdgeInsets.only(bottom: 14),
+      child: Column(
+        children: [
+          InkWell(
+              onTap: () async {
+                final url = "https://beyondbarriersusa.org/";
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                  );
+                }
+              },
+              splashColor: Colors.white10,
+              child: Ink.image(
+                image: AssetImage("assets/images/beyondbarriers.png"),
+                height: MediaQuery.of(context).size.height * .45,
+                width: MediaQuery.of(context).size.width * .45,
+              )),
+          Text("Beyond Barriers"),
+          InkWell(
+              onTap: () async {
+                final url = "https://www.pnetworks.org/";
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                  );
+                }
+              },
+              splashColor: Colors.white10,
+              child: Ink.image(
+                image: AssetImage("assets/images/pnetworks.png"),
+                height: MediaQuery.of(context).size.height * .45,
+                width: MediaQuery.of(context).size.width * .45,
+              )),
+          Text("Parallel Networks"),
+          InkWell(
+              onTap: () async {
+                final url = "https://www.miraclecourt.com/";
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                  );
+                }
+              },
+              splashColor: Colors.white10,
+              child: Ink.image(
+                image: AssetImage("assets/images/mcourt.png"),
+                height: MediaQuery.of(context).size.height * .45,
+                width: MediaQuery.of(context).size.width * .45,
+              )),
+          Text("Miracle Court"),
+          InkWell(
+              onTap: () async {
+                final url = "http://www.savingcain.org/";
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                  );
+                }
+              },
+              splashColor: Colors.white10,
+              child: Ink.image(
+                image: AssetImage("assets/images/savingcain.jpeg"),
+                height: MediaQuery.of(context).size.height * .45,
+                width: MediaQuery.of(context).size.width * .45,
+              )),
+          Text("SavingCain.org"),
+        ],
+      ),
+    ));
   }
 }
