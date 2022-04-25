@@ -1,9 +1,19 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:my_app/routes/router.gr.dart';
+
+import '../views/exercises.dart';
+import '../views/sos.dart';
+import '../views/Steps.dart';
 
 class SideMenu extends StatelessWidget {
-  const SideMenu({
+  BuildContext context;
+  SideMenu({
     Key? key,
+    required this.context,
   }) : super(key: key);
 
   @override
@@ -11,18 +21,19 @@ class SideMenu extends StatelessWidget {
     return Drawer(
       backgroundColor: const Color(0xff0B3F24),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(30)),
+        borderRadius: BorderRadius.only(bottomRight: Radius.circular(30)),
       ),
       child: ListView(
         children: [
           DrawerHeader(
-            child: Image.asset("assets/images/logo.png"),
+            child: Image.asset("assets/images/officialLogo.png"),
           ),
           DrawerListTile(
             title: "Dashboard",
             svgSrc: "assets/icons/menu_dashbord.svg",
-            press: () {},
+            press: () {
+              this.context.navigateTo(const DashboardRoute());
+            },
           ),
           DrawerListTile(
             title: "Profile",
@@ -30,9 +41,31 @@ class SideMenu extends StatelessWidget {
             press: () {},
           ),
           DrawerListTile(
+            title: "Exercises",
+            svgSrc: "assets/icons/menu_tran.svg",
+            press: () {
+              AutoRouter.of(context).push(const ExercisesRoute()); 
+            },
+          ),
+          DrawerListTile(
+            title: "SOS",
+            svgSrc: "assets/icons/menu_tran.svg",
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SOSRoute()),
+              );
+            },
+          ),
+          DrawerListTile(
             title: "About",
             svgSrc: "assets/icons/menu_tran.svg",
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => StepsRoute()),
+              );
+            },
           ),
           DrawerListTile(
             title: "FAQ",

@@ -1,12 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:my_app/routes/router.gr.dart';
-import '../main.dart';
 import 'authentication.dart';
 import '../db/database.dart';
 import '../state/appState.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 
 
@@ -80,12 +80,9 @@ class _GoogleButtonState extends State<GoogleButton> {
               : Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const <Widget>[
-                    Image(
-                      image: AssetImage("../../assets/google_logo.png"),
-                      height: 30.0,
-                    ),
-                    Padding(
+                  children: <Widget>[
+                    Image.asset("assets/images/google_logo.png",height: 30,),
+                    const Padding(
                       padding: EdgeInsets.only(left: 20),
                       child: Text(
                         'Continue with Google',

@@ -4,9 +4,10 @@ import '../components/MenuController.dart';
 import 'package:provider/provider.dart';
 import 'package:my_app/responsive.dart';
 import '../../../constants.dart';
+import 'exercises.dart';
 
-class Journal extends StatelessWidget {
-  const Journal({Key? key}) : super(key: key);
+class TxtbxRoute extends StatelessWidget {
+  const TxtbxRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class Journal extends StatelessWidget {
                                   context.read<MenuController>().controlMenu,
                             ),
                           const SizedBox(width: 30),
-                          const Text("Journal",
+                          const Text("Exercise",
                               style: TextStyle(
                                   color: Color(0xff0B3F24),
                                   fontWeight: FontWeight.bold,
@@ -63,11 +64,11 @@ class Journal extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    const Text(
-                                      "Today",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                    // const Text(
+                                    //   "Today",
+                                    //   style: TextStyle(
+                                    //       fontWeight: FontWeight.bold),
+                                    // ),
                                     const SizedBox(height: 10),
                                     const Text("April 17, 2022"),
                                     const SizedBox(height: 10),
@@ -80,46 +81,45 @@ class Journal extends StatelessWidget {
                                       child: Container(
                                         padding: const EdgeInsets.all(
                                             defaultPadding),
-                                        child: const Text(
-                                                "What are you looking forward to? What are ways you are going to achieve this?"),
+                                        child: Text(clickedQ),
                                       ),
                                     ),
                                     const SizedBox(height: 10),
-                                    TextField(
-                                      decoration: InputDecoration(
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 2,
-                                          ),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            width: 2,
-                                            color: Color(0xffB1CEBF),
-                                          ),
-                                        ),
-                                        border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 2,
-                                          ),
-                                        ),
-                                        filled: true,
-                                        hintStyle: TextStyle(
-                                          color: Colors.blueGrey[300],
-                                        ),
-                                        hintText: "Title ...",
-                                        fillColor: Colors.white,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
+                                    // TextField(
+                                    //   decoration: InputDecoration(
+                                    //     enabledBorder: OutlineInputBorder(
+                                    //       borderRadius:
+                                    //           BorderRadius.circular(10),
+                                    //       borderSide: const BorderSide(
+                                    //         color: Colors.transparent,
+                                    //         width: 2,
+                                    //       ),
+                                    //     ),
+                                    //     focusedBorder: OutlineInputBorder(
+                                    //       borderRadius:
+                                    //           BorderRadius.circular(10),
+                                    //       borderSide: const BorderSide(
+                                    //         width: 2,
+                                    //         color: Color(0xffB1CEBF),
+                                    //       ),
+                                    //     ),
+                                    //     border: OutlineInputBorder(
+                                    //       borderRadius:
+                                    //           BorderRadius.circular(10),
+                                    //       borderSide: const BorderSide(
+                                    //         color: Colors.transparent,
+                                    //         width: 2,
+                                    //       ),
+                                    //     ),
+                                    //     filled: true,
+                                    //     hintStyle: TextStyle(
+                                    //       color: Colors.blueGrey[300],
+                                    //     ),
+                                    //     hintText: "Title ...",
+                                    //     fillColor: Colors.white,
+                                    //   ),
+                                    // ),
+                                    //const SizedBox(height: 10),
                                     TextField(
                                       minLines: 11,
                                       maxLines: null, // make true multiline
@@ -155,7 +155,7 @@ class Journal extends StatelessWidget {
                                           color: Colors.blueGrey[300],
                                         ),
                                         hintText:
-                                            "Write down your thoughts here ...",
+                                            "Answer the prompt here ...",
                                         fillColor: Colors.white,
                                       ),
                                     ),
@@ -177,7 +177,7 @@ class Journal extends StatelessWidget {
                                                 0xff0B3F24), // Text Color
                                           ),
                                           child: const Text(
-                                              'View previous entries'),
+                                              'View other responses'),
                                           onPressed: () {/* ... */},
                                         )
                                       ],

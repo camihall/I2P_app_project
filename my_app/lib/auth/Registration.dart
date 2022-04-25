@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'authentication.dart';
@@ -6,7 +8,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:my_app/routes/router.gr.dart';
 import '../state/appState.dart';
-import '../main.dart';
 
 
 
