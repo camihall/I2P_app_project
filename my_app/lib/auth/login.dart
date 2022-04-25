@@ -121,7 +121,7 @@ class _LoginPageState extends State<Login> {
                             Padding(
                                 padding: EdgeInsets.only(left: 24, top: 6),
                                 child: const Text(
-                                  'Email address',
+                                  'Email address/Username',
                                   style: TextStyle(color: Colors.white),
                                 )),
                             Padding(
@@ -156,7 +156,7 @@ class _LoginPageState extends State<Login> {
                                     hintStyle: TextStyle(
                                       color: Colors.blueGrey[300],
                                     ),
-                                    hintText: "Email",
+                                    hintText: "Email/Username",
                                     fillColor: Colors.white,
                                     errorText: _isEditingEmail
                                         ? _validateEmail(
