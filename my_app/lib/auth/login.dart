@@ -80,13 +80,13 @@ class _LoginPageState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: DecoratedBox(
+        body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("../assets/images/loginbg.png"),
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
                 repeat: ImageRepeat.repeatY,
-              ),
+              ), /*color: Color(0xFFE0ECE6)*/
             ),
             child: SingleChildScrollView(
                 child: Padding(
