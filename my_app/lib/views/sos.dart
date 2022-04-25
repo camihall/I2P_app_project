@@ -6,24 +6,14 @@ import '../components/MenuController.dart';
 import '../responsive.dart';
 
 class SOSRoute extends StatelessWidget{
+  const SOSRoute({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
-      title: 'SOS',
-      home: Scaffold(
-        body: SafeArea(
+    return SafeArea(
             child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // We want this side menu only for large screen
-            if (Responsive.isDesktop(context))
-              Expanded(
-                // default flex = 1
-                // and it takes 1/6 part of the screen
-                child: SideMenu(context: context),
-              ),
+          children: [            
             Expanded(
                 // It takes 5/6 part of the screen
                 flex: 5,
@@ -72,9 +62,7 @@ class SOSRoute extends StatelessWidget{
                   ),
                 ))
           ],
-        )),
-      ),
-    );
+        ));
   }
 }
 
