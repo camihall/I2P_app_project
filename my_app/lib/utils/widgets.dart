@@ -42,9 +42,9 @@ class HeaderWidget extends StatelessWidget {
       children: <Widget>[
         // logo 
         SizedBox(
-          width: 70,
-          height: 60,
-          child: Image.asset('../assets/logo.png'),
+          width: 200,
+          height: 200,
+          child: Image.asset('assets/images/officialLogo.png'),
         ),
 
         Row(

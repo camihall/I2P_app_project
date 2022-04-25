@@ -42,10 +42,7 @@ class SideMenu extends StatelessWidget {
             title: "Exercises",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => exercises()),
-              );
+              AutoRouter.of(context).push(const ExercisesRoute()); 
             },
           ),
           DrawerListTile(
