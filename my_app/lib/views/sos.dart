@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../components/DashboardHeader.dart';
 import '../components/MenuController.dart';
 import '../responsive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SOSRoute extends StatelessWidget {
   @override
@@ -88,29 +89,69 @@ class MySquares extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 14),
       child: Column(
         children: [
-          Image.asset(
-            "assets/images/beyondbarriers.png",
-            height: MediaQuery.of(context).size.height * .45,
-            width: MediaQuery.of(context).size.width * .45,
-          ),
-          Text("Beyond Borders"),
-          Image.asset(
-            "assets/images/pnetworks.png",
-            height: MediaQuery.of(context).size.height * .45,
-            width: MediaQuery.of(context).size.width * .45,
-          ),
+          InkWell(
+              onTap: () async {
+                final url = "https://beyondbarriersusa.org/";
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                  );
+                }
+              },
+              splashColor: Colors.white10,
+              child: Ink.image(
+                image: AssetImage("assets/images/beyondbarriers.png"),
+                height: MediaQuery.of(context).size.height * .45,
+                width: MediaQuery.of(context).size.width * .45,
+              )),
+          Text("Beyond Barriers"),
+          InkWell(
+              onTap: () async {
+                final url = "https://www.pnetworks.org/";
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                  );
+                }
+              },
+              splashColor: Colors.white10,
+              child: Ink.image(
+                image: AssetImage("assets/images/pnetworks.png"),
+                height: MediaQuery.of(context).size.height * .45,
+                width: MediaQuery.of(context).size.width * .45,
+              )),
           Text("Parallel Networks"),
-          Image.asset(
-            "assets/images/officialLogo.png",
-            height: MediaQuery.of(context).size.height * .45,
-            width: MediaQuery.of(context).size.width * .45,
-          ),
+          InkWell(
+              onTap: () async {
+                final url = "https://www.miraclecourt.com/";
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                  );
+                }
+              },
+              splashColor: Colors.white10,
+              child: Ink.image(
+                image: AssetImage("assets/images/mcourt.png"),
+                height: MediaQuery.of(context).size.height * .45,
+                width: MediaQuery.of(context).size.width * .45,
+              )),
           Text("Miracle Court"),
-          Image.asset(
-            "assets/images/officialLogo.png",
-            height: MediaQuery.of(context).size.height * .45,
-            width: MediaQuery.of(context).size.width * .45,
-          ),
+          InkWell(
+              onTap: () async {
+                final url = "http://www.savingcain.org/";
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                  );
+                }
+              },
+              splashColor: Colors.white10,
+              child: Ink.image(
+                image: AssetImage("assets/images/savingcain.jpeg"),
+                height: MediaQuery.of(context).size.height * .45,
+                width: MediaQuery.of(context).size.width * .45,
+              )),
           Text("SavingCain.org"),
         ],
       ),
