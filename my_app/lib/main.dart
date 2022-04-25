@@ -55,7 +55,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  late final _appRouter = AppRouter(routeGuard: RouteGuard());
+  late final _appRouter = AppRouter(routeGuard: RouteGuard(),loginGuard: LoginGuard());
   @override
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(

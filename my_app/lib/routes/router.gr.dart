@@ -31,10 +31,13 @@ import 'route_guard.dart' as _i16;
 class AppRouter extends _i14.RootStackRouter {
   AppRouter(
       {_i15.GlobalKey<_i15.NavigatorState>? navigatorKey,
-      required this.routeGuard})
+      required this.routeGuard,
+      required this.loginGuard})
       : super(navigatorKey);
 
   final _i16.RouteGuard routeGuard;
+
+  final _i16.LoginGuard loginGuard;
 
   @override
   final Map<String, _i14.PageFactory> pagesMap = {
@@ -137,7 +140,7 @@ class AppRouter extends _i14.RootStackRouter {
           _i14.RouteConfig(StepsRoute.name,
               path: 'about', parent: DashboardRoute.name, usesPathAsKey: true)
         ]),
-        _i14.RouteConfig(LoginRoute.name, path: '/login'),
+        _i14.RouteConfig(LoginRoute.name, path: '/login', guards: [loginGuard]),
         _i14.RouteConfig(RegistrationRoute.name, path: '/registration')
       ];
 }

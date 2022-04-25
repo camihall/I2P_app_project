@@ -53,7 +53,7 @@ import '../views/landing.dart';
       ],
       guards: [RouteGuard],
     ),
-    AutoRoute(page: Login, name: 'LoginRoute', path: '/login'),
+    AutoRoute(page: Login, name: 'LoginRoute', path: '/login', guards: [LoginGuard],),
     AutoRoute(
         page: Registration, name: 'RegistrationRoute', path: '/registration'),
   ],
