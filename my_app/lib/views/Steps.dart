@@ -65,8 +65,34 @@ class StepsRoute extends StatelessWidget {
                         ),
                         Container(
                           padding: const EdgeInsets.only(left: 50, right: 50),
-                          child: StepsList(),
-                        )
+                          child: RichText(
+                            text: TextSpan(
+                              text: '',
+                              style: TextStyle(color: Colors.black),
+                              children: const <TextSpan>[
+                                TextSpan(text: '4 Points of our SMART Recovery Plan Based Program\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
+                                TextSpan(
+                                  text: 
+'''\n1. Building and maintaining the motivation to change.
+2. Coping with urges to participate in extremist activities.
+3. Managing thoughts, feelings, and behaviors in an effective way without addictive behaviors.
+4. Living a balanced, positive, and healthy life.''', 
+                                  style: TextStyle(fontSize: 16)),
+                                TextSpan(text: '\n\n\nWhat is the SMART Recovery Plan?', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
+                                TextSpan(
+                                  text: 
+'''\n\nSelf-Management and Recovery Training (SMART) is a support 
+program for people with addictions and behavioral disorders. It 
+teaches people how to control their addictive behavior by focusing 
+on underlying thoughts and feelings. Participants in SMART learn skills 
+to manage their cravings and urges for the long term. SMART proposes a 
+4-point program. Participants can tackle a specific point in any order 
+based on their needs.''', 
+                                  style: TextStyle(fontSize: 16)),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
