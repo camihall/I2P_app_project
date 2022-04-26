@@ -119,9 +119,10 @@ class Progress extends StatelessWidget {
                                     debugPrint('Card tapped.');
                                   },
                                   child: Container(
+                                    color: Color(0xFFFFFF),
                                     // padding: const EdgeInsets.all(defaultPadding),
                                     width: 600,
-                                    height: 450,
+                                    height: 480,
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -145,19 +146,46 @@ class Progress extends StatelessWidget {
                                         SizedBox(height: 5),
                                         MoodTrackerBar(
                                           title: '',
+                                        ),
+                                        Row(
+                                          children: [
+                                            SizedBox(width: 40),
+                                            Container(
+                                                child: Image.asset(
+                                                  "assets/images/Happiness.png",width:92, height:50
+                                                )),
+                                                Container(
+                                                // height: 50.0,
+                                                // width: 50.0,
+                                                child: Image.asset(
+                                                  "assets/images/Sadness.png",width:92, height:50
+                                                )),
+                                                Container(
+                                                // height: 50.0,
+                                                // width: 50.0,
+                                                child: Image.asset(
+                                                  "assets/images/Fear.png",width:92, height:50
+                                                )),
+                                                Container(
+                                                // height: 50.0,
+                                                // width: 50.0,
+                                                child: Image.asset(
+                                                  "assets/images/Disgust.png",width:92, height:50
+                                                )),
+                                                Container(
+                                                // height: 50.0,
+                                                // width: 50.0,
+                                                child: Image.asset(
+                                                  "assets/images/Anger.png",width:92, height:50
+                                                )),
+                                                Container(
+                                                // height: 50.0,
+                                                // width: 50.0,
+                                                child: Image.asset(
+                                                  "assets/images/Surprise.png",width:92, height:50
+                                                ))
+                                          ],
                                         )
-                                        // SizedBox(height: 10),
-                                        // Container(
-                                        //   width: 100,
-                                        //   height: 80,
-                                        //   decoration:
-                                        //       const BoxDecoration(
-                                        //     borderRadius:
-                                        //         BorderRadius.all(
-                                        //             Radius.circular(
-                                        //                 10)),
-                                        //   ),
-                                        // ),
                                       ],
                                     ),
                                   ))),
