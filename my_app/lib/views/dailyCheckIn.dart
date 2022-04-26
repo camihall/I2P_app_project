@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
 import 'package:my_app/routes/router.gr.dart';
@@ -8,9 +9,9 @@ import '../components/MenuController.dart';
 import 'package:provider/provider.dart';
 import 'package:my_app/responsive.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../components/DashboardOptions.dart';
-import '../components/DashboardOptionCard.dart';
+import '../views/exercises.dart';
+
+
 
 class CheckIn extends StatelessWidget {
   const CheckIn({Key? key}) : super(key: key);
@@ -78,10 +79,10 @@ class CheckIn extends StatelessWidget {
 
               const hoverchange(),
 
+              
               const SizedBox(
-                height: 60,
+                height: 50,
               ),
-
               /*Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -92,7 +93,12 @@ class CheckIn extends StatelessWidget {
                   Text("Excited"),
                 ],
               )*/
-              const btn_submit()
+              const btn_submit(),
+
+
+              const SizedBox(
+                height: 100,
+              )
             ],
             ),
             )
@@ -124,12 +130,12 @@ class _hoverchangeState extends State<hoverchange> {
                 Card(
                   shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15)),
-                              elevation: 10,
-                              child: Container(
-                                padding: const EdgeInsets.all(50),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,                                  
-                                  children: [
+                                  elevation: 10,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(50),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.center,                                  
+                                      children: [
                 
                 Column(
                   children: [
@@ -192,18 +198,10 @@ class _hoverchangeState extends State<hoverchange> {
                 )
               )
             )
-              
-                
-                /*Image.asset('assets/images/I2PImages/angry.png', width: 200, height: 200,),
-                Image.asset("assets/images/I2PImages/sad.png", width: 200, height: 200,),
-                Image.asset("assets/images/I2PImages/stressed.jpg", width: 200, height: 200,),
-                Image.asset("assets/images/I2PImages/happy.png", width: 200, height: 200,),
-                Image.asset("assets/images/I2PImages/excited2.png", width: 200, height: 200,),*/
-              ],
-
-    );
-  }
-}
+          ],
+        );
+      }
+    }
 
 
 
@@ -220,44 +218,33 @@ class _btn_submitState extends State<btn_submit> {
   @override
   Widget build(BuildContext context) {
     return Center(
+      child: ReRoute(
+        svg: SvgPicture.asset("assets/icons/Submit.svg", height: 60, width: 60,), 
+        press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const checkInToExercises()),
+              );
+            },
+          )     
+        );
+      }
+    }
 
-      child: SizedBox(
-        
-        child: SvgPicture.asset("assets/icons/Submit.svg"),
-        width: 150,
-        height: 150,
-        
-      )
+class ReRoute extends StatelessWidget {
+  const ReRoute({ Key? key,
+    required this.svg,
+    required this.press,
+   }) : super(key: key);
 
-      /*child: ListView(
-        children: [
-          GestureDetector(
-            onTap: () {},
-          )
-          SizedBox()
-        ],
-      ),*/
+  final SvgPicture svg;
+  final VoidCallback press;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: press,
+      child: svg
     );
-    
-    /*return Stack(
-      alignment: Alignment.center,
-      children: [
-        Center(child: 
-          SvgPicture.asset("assets/icons/Submit.svg")
-        ,),
-         Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-               Text("Submit", 
-                textAlign: TextAlign.center,
-                style: GoogleFonts.roboto(fontSize: 20, color: Colors.white), 
-              )
-            ], 
-          ),
-         ) 
-      ],
-    );*/
   }
 }
-

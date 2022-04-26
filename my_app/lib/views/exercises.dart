@@ -99,7 +99,92 @@ class exerciseAll extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [new exerciseBox()]);
+        children: [exerciseBox()]);
+  }
+}
+class checkInToExercises extends StatelessWidget {
+  const checkInToExercises({ Key? key }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.light(),
+      title: 'Exercises',
+      home: Scaffold(
+        body: SafeArea(
+            child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // We want this side menu only for large screen
+            if (Responsive.isDesktop(context))
+            Expanded(
+                // It takes 5/6 part of the screen
+                flex: 5,
+                child: SafeArea(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CustomPaint(
+                          painter: DashboardHeader(),
+                          child: SizedBox(
+                              height: 350,
+                              child: Column(
+                                children: [
+                                  const SizedBox(height: 100),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      const SizedBox(width: 20),
+                                      if (!Responsive.isDesktop(context))
+                                        IconButton(
+                                          icon: const Icon(Icons.menu),
+                                          iconSize: 40,
+                                          onPressed: context
+                                              .read<MenuController>()
+                                              .controlMenu,
+                                        ),
+                                      const SizedBox(width: 30),
+                                      const Text("Exercises",
+                                          style: TextStyle(
+                                              color: Color(0xff0B3F24),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 40)),
+                                    ],
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      const SizedBox(width: 50),
+                                      if (!Responsive.isDesktop(context))
+                                        const SizedBox(width: 55),
+                                      const Text(
+                                          "You have 2 exercises to complete today",
+                                          style: TextStyle(
+                                              color: Color(0xff0B3F24),
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 20)),
+                                    ],
+                                  )
+                                ],
+                              )),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(left: 50, right: 50),
+                          child: exerciseAll(),
+                        )
+                      ],
+                    ),
+                  ),
+                ))
+          ],
+        )),
+      ),
+    
+      
+    );
   }
 }
 
