@@ -13,7 +13,7 @@ void main() {
   // in the `build` function.
 
   runApp(Root(
-    title: 'I2P App',
+    title: 'A New Page',
     store: store,
   ));
 }
