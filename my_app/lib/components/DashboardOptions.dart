@@ -1,10 +1,10 @@
 import 'package:my_app/responsive.dart';
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
+import '../views/sos.dart';
 import 'DashboardOptionCard.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:my_app/routes/router.gr.dart';
-
 
 class DashboardOption {
   final String svgSrc, title;
@@ -22,35 +22,31 @@ class DashboardOption {
     return route;
   }
 
-  DashboardOption({required this.svgSrc, required this.title, required this.route});
+  DashboardOption(
+      {required this.svgSrc, required this.title, required this.route});
 }
 
 List options = [
   DashboardOption(
-    svgSrc: "assets/icons/Journal.svg",
-    title: "Journal",
-    route: const JournalRoute()
-  ),
+      svgSrc: "assets/icons/Journal.svg",
+      title: "Journal",
+      route: const JournalRoute()),
   DashboardOption(
-    svgSrc: "assets/icons/CheckIn.svg",
-    title: "Daily Check-In",
-    route: const CheckInRoute()
-  ),
+      svgSrc: "assets/icons/CheckIn.svg",
+      title: "Daily Check-In",
+      route: const CheckInRoute()),
   DashboardOption(
-    svgSrc: "assets/icons/Progress.svg",
-    title: "Progress Tracking",
-    route: const ProgressRoute()
-  ),
+      svgSrc: "assets/icons/Progress.svg",
+      title: "Progress Tracking",
+      route: const ProgressRoute()),
   DashboardOption(
-    svgSrc: "assets/icons/Meditation.svg",
-    title: "Meditation",
-    route: const MeditationRoute()
-  ),
+      svgSrc: "assets/icons/Meditation.svg",
+      title: "Meditation",
+      route: const MeditationRoute()),
   DashboardOption(
-    svgSrc: "assets/icons/Resources.svg",
-    title: "Resources",
-    route: const ResourcesRoute()
-  ),
+      svgSrc: "assets/icons/Resources.svg",
+      title: "Resources",
+      route: SOSRoute()),
 ];
 
 class DashboardOptions extends StatelessWidget {
@@ -104,16 +100,20 @@ class DashboardOptionCardGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: options.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: defaultPadding,
-        mainAxisSpacing: defaultPadding,
-        childAspectRatio: childAspectRatio,
-      ),
-      itemBuilder: (context, index) => DashboardOptionCard(svgSrc: options[index].svgSource, title: options[index].optionTitle, onClick: () => AutoRouter.of(context).push(options[index].destination),)
-    );
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: options.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: crossAxisCount,
+          crossAxisSpacing: defaultPadding,
+          mainAxisSpacing: defaultPadding,
+          childAspectRatio: childAspectRatio,
+        ),
+        itemBuilder: (context, index) => DashboardOptionCard(
+              svgSrc: options[index].svgSource,
+              title: options[index].optionTitle,
+              onClick: () =>
+                  AutoRouter.of(context).push(options[index].destination),
+            ));
   }
 }
