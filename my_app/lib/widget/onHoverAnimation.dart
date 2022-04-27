@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sprung/sprung.dart';
 
 class OnHoverCheckIn extends StatefulWidget {
   final Widget Function(bool isHovered) builder;
@@ -23,6 +24,7 @@ class _OnHoverCheckInState extends State<OnHoverCheckIn> {
       onExit: (event) => onEntered(false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
+        curve: Sprung.overDamped,
         transform: transform,
         child: widget.builder(isHovered)
       )

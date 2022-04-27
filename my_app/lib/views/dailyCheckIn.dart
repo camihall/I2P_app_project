@@ -163,8 +163,8 @@ class _hoverchangeState extends State<hoverchange> {
 
                   OnHoverCheckIn(
                       builder:((isHovered) {
-                        final svgcolor = isHovered ? SvgPicture.asset('assets/icons/disgust-emoji1.svg', height: 150, width: 150, color: Colors.lightGreen[600],): SvgPicture.asset('assets/icons/disgust-emoji1.svg', height: 150, width: 150,);
-                        final textColor = isHovered ? Text("Disgusted", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.lightGreen[600],),) : const Text("Disgusted", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),);
+                        final svgcolor = isHovered ? SvgPicture.asset('assets/icons/disgust-emoji1.svg', height: 150, width: 150, color: Colors.lightGreen[700],): SvgPicture.asset('assets/icons/disgust-emoji1.svg', height: 150, width: 150,);
+                        final textColor = isHovered ? Text("Disgusted", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.lightGreen[700],),) : const Text("Disgusted", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),);
                         
                         return Column(
                             children: [
