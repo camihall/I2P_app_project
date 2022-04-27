@@ -31,10 +31,8 @@ final _kEventSource = {
         item % 4 + 1, (index) => Event('Event $item | ${index + 1}'))
 }..addAll({
     kToday: [
-      const Event('Write journal entry'),
-      const Event('Complete daily check in'),
-      const Event('Meditate'),
-      const Event('Find a counselor'),
+      const Event('Today\'s Event 1'),
+      const Event('Today\'s Event 2'),
     ],
   });
 
@@ -151,7 +149,7 @@ class CalendarTodoState extends State<CalendarTodo> {
             Container(
               width: _size.width >= 850 ? _size.width * 0.4 : _size.width * 0.8,
               height:
-                  _size.width >= 850 ? _size.height * 0.55 : _size.height * 0.6,
+                  _size.width >= 850 ? _size.height * 0.5 : _size.height * 0.5,
               padding: const EdgeInsets.all(50),
               child: Card(
                   child: Container(
@@ -196,8 +194,8 @@ class CalendarTodoState extends State<CalendarTodo> {
                 width:
                     _size.width >= 850 ? _size.width * 0.4 : _size.width * 0.8,
                 height: _size.width >= 850
-                    ? _size.height * 0.55
-                    : _size.height * 0.6,
+                    ? _size.height * 0.5
+                    : _size.height * 0.5,
                 padding: const EdgeInsets.all(50),
                 child: Card(
                   child: Container(
