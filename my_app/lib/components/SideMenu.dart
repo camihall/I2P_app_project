@@ -8,6 +8,7 @@ import 'package:my_app/routes/router.gr.dart';
 import '../views/exercises.dart';
 import '../views/sos.dart';
 import '../views/Steps.dart';
+import '../views/faq.dart';
 
 class SideMenu extends StatelessWidget {
   BuildContext context;
@@ -70,7 +71,12 @@ class SideMenu extends StatelessWidget {
           DrawerListTile(
             title: "FAQ",
             svgSrc: "assets/icons/menu_setting.svg",
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FaqRoute()),
+              );
+            },
           ),
           DrawerListTile(
             title: "Settings",
