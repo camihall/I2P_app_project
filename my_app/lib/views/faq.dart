@@ -68,9 +68,9 @@ class FaqRoute extends StatelessWidget {
                           child: RichText(
                             text: TextSpan(
                               text: '',
-                              style: TextStyle(color: 0xff0B3F24, alignment: left),
+                              style: TextStyle(color: Color(0xff0B3F24)),
                               children: const <TextSpan>[
-                                TextSpan(text: 'What is CBT?\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, alignment: left)),
+                                TextSpan(text: 'What is CBT?\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
                                 TextSpan(
                                   text: '''
             Cognitive Behavioral Therapy (CBT) is a type of psychological treatment 
@@ -78,8 +78,8 @@ class FaqRoute extends StatelessWidget {
             and depression. CBT, based on research studies, can be as effective if 
             not more effective than other psychological treatments and mediations 
             and can lead to improvements in one’s quality of life. ''', 
-                                  style: TextStyle(fontSize: 14)),
-                                TextSpan(text: '\n\n\nHow does CBT work?\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                                  style: TextStyle(fontSize: 18)),
+                                TextSpan(text: '\n\n\nHow does CBT work?\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
                                 TextSpan(
                                   text: '''
             CBT is based on the idea that thoughts, feelings, physical sensations 
@@ -94,8 +94,8 @@ class FaqRoute extends StatelessWidget {
             their thinking and behavior. While many people who use CBT have mental 
             health disorders, it is an effective tool for anyone who wants to manage 
             stressful life situations. ''', 
-                                  style: TextStyle(fontSize: 14)),
-                                TextSpan(text: '\n\n\nWhat is SMART Recovery?\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, alignment: left)),
+                                  style: TextStyle(fontSize: 18)),
+                                TextSpan(text: '\n\n\nWhat is SMART Recovery?\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22,)),
                                 TextSpan(
                                   text: '''
             Self-Management and Recovery Training (SMART) is a support program for 
@@ -105,8 +105,8 @@ class FaqRoute extends StatelessWidget {
             and urges for the long term. Participants can tackle a specific point in 
             any order based on their needs. SMART recovery uses principles of CBT 
             in the recovery process.''', 
-                                  style: TextStyle(fontSize: 14)),
-                                TextSpan(text: '\n\n\nWhat is Motivational Interviewing? \n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                                  style: TextStyle(fontSize: 18)),
+                                TextSpan(text: '\n\n\nWhat is Motivational Interviewing? \n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
                                 TextSpan(
                                   text: '''
             The definition of Motivational Interviewing used by Miller & Rollnick 
@@ -123,8 +123,8 @@ class FaqRoute extends StatelessWidget {
             interviewing encourages what is referred to as ‘change talk’ which 
             involves 4 types of statements surrounding the goals of the client. These 
             statements are categorized by desire, ability, reason, and need. ''', 
-                                  style: TextStyle(fontSize: 14)),
-                                TextSpan(text: '\n\n\nWhat is disengagement?\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, alignment: left)),
+                                  style: TextStyle(fontSize: 18)),
+                                TextSpan(text: '\n\n\nWhat is disengagement?\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
                                 TextSpan(
                                   text: '''
             Disengagement refers to the rejection of partaking in violent extremist 
@@ -133,8 +133,8 @@ class FaqRoute extends StatelessWidget {
             peaceful manner. Disengagement implies a change which is “inherently 
             social and behavioral,” not ideological. That being said, the practice of 
             disengagement often can lead to deradicalization. ''', 
-                                  style: TextStyle(fontSize: 14)),
-                                TextSpan(text: '\n\n\nWhat is deradicalization? \n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                                  style: TextStyle(fontSize: 18)),
+                                TextSpan(text: '\n\n\nWhat is deradicalization? \n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
                                 TextSpan(
                                   text: '''
             Deradicalization refers to an individual's gradual shifting away from 
@@ -143,8 +143,8 @@ class FaqRoute extends StatelessWidget {
             extremists of violent tactics/behaviors, but also of those extremist 
             ideologies in general. Deradicalization primarily concerns ideology and 
             personal beliefs, and thus can be more difficult to track, but it is the 
-            ultimate goal of helping a person grow away from extremism and hate.  ''', 
-                                  style: TextStyle(fontSize: 14)),
+            ultimate goal of helping a person grow away from extremism and hate.\n\n\n\n''', 
+                                  style: TextStyle(fontSize: 18)),
                               ],
                             ),
                           ),
