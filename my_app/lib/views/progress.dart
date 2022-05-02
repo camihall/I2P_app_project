@@ -66,31 +66,32 @@ class Progress extends StatelessWidget {
                 child: Row(children: [
                   Column(
                     children: [
-                      Row(children: [
-                        IconButton(
-                          icon: const Icon(Icons.arrow_back_ios_new_rounded),
-                          // tooltip: 'Increase volume by 10',
-                          onPressed: () {
-                            // setState(() {
-                              Navigator. pop(context);
-                            // });
-                          },
-                        ),
-                        Text(
-                          "back",
-                          style: TextStyle(
-                              color: Color(0xff0B3F24),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        )
-                      ]),
-                      SizedBox(height: 550)
-                    ],
-                  ),
-                  Column(
-                    children: [
+                      // Row(children: [
+                      SizedBox(
+                        width: 75,
+                        child: Row(children: [
+                          IconButton(
+                            icon: const Icon(Icons.arrow_back_ios_new_rounded),
+                            // tooltip: 'Increase volume by 10',
+                            onPressed: () {
+                              // setState(() {
+                              Navigator.pop(context);
+                              // });
+                            },
+                          ),
+                          Text(
+                            "back",
+                            style: TextStyle(
+                                color: Color(0xff0B3F24),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          )
+                        ]),
+                      ),
+                      // ]),
+                      SizedBox(height: 15),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        // mainAxisAlignment: MainAxisAlignment.start,
                         children: const [
                           Text(
                             "Overview",
