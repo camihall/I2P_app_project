@@ -40,28 +40,28 @@ class SideMenu extends StatelessWidget {
             title: "Exercises",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
-              AutoRouter.of(context).push(const ExercisesRoute());
+              this.context.navigateTo(const ExercisesRoute());
             },
           ),
           DrawerListTile(
             title: "Resources",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
-              AutoRouter.of(context).push(const SOSRoute());
+              this.context.navigateTo(const SOSRoute());
             },
           ),
           DrawerListTile(
             title: "About",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
-              AutoRouter.of(context).push(const StepsRoute());
+              this.context.navigateTo(const StepsRoute());
             },
           ),
           DrawerListTile(
             title: "FAQ",
             svgSrc: "assets/icons/menu_setting.svg",
             press: () {
-              AutoRouter.of(context).push(const StepsRoute());
+              this.context.navigateTo(const FAQRoute());
             },
           ),
           DrawerListTile(

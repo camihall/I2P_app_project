@@ -13,7 +13,8 @@ class SOSRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Row(
+        child: SingleChildScrollView(
+            child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
@@ -70,7 +71,7 @@ class SOSRoute extends StatelessWidget {
               ),
             ))
       ],
-    ));
+    )));
   }
 }
 
