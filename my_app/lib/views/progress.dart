@@ -66,6 +66,29 @@ class Progress extends StatelessWidget {
                 child: Row(children: [
                   Column(
                     children: [
+                      Row(children: [
+                        IconButton(
+                          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+                          // tooltip: 'Increase volume by 10',
+                          onPressed: () {
+                            // setState(() {
+                              Navigator. pop(context);
+                            // });
+                          },
+                        ),
+                        Text(
+                          "back",
+                          style: TextStyle(
+                              color: Color(0xff0B3F24),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
+                        )
+                      ]),
+                      SizedBox(height: 550)
+                    ],
+                  ),
+                  Column(
+                    children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: const [
@@ -80,7 +103,7 @@ class Progress extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Row(children: [
-                        SizedBox(width: 150),
+                        SizedBox(width: 135),
                         ProgressStreakCard(
                             title: "Current Streak", numdays: 10),
                         SizedBox(width: 10),
@@ -90,7 +113,7 @@ class Progress extends StatelessWidget {
                       SizedBox(height: 10),
                       Row(
                         children: [
-                          SizedBox(width: 150),
+                          SizedBox(width: 135),
                           ProgressCountCard(
                               title: "Journal Entries", numdays: 30)
                         ],
@@ -98,7 +121,7 @@ class Progress extends StatelessWidget {
                       SizedBox(height: 10),
                       Row(
                         children: [
-                          SizedBox(width: 150),
+                          SizedBox(width: 135),
                           ProgressCountCard(
                               title: "Guided Questions", numdays: 35)
                         ],
@@ -110,7 +133,7 @@ class Progress extends StatelessWidget {
                       SizedBox(height: 10),
                       Row(
                         children: [
-                          SizedBox(width: 50),
+                          SizedBox(width: 40),
                           Card(
                               elevation: 3,
                               child: InkWell(
@@ -119,9 +142,10 @@ class Progress extends StatelessWidget {
                                     debugPrint('Card tapped.');
                                   },
                                   child: Container(
+                                    color: Color(0xFFFFFF),
                                     // padding: const EdgeInsets.all(defaultPadding),
                                     width: 600,
-                                    height: 450,
+                                    height: 480,
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -145,19 +169,52 @@ class Progress extends StatelessWidget {
                                         SizedBox(height: 5),
                                         MoodTrackerBar(
                                           title: '',
+                                        ),
+                                        Row(
+                                          children: [
+                                            SizedBox(width: 40),
+                                            Container(
+                                                child: Image.asset(
+                                                    "assets/images/Happiness.png",
+                                                    width: 92,
+                                                    height: 50)),
+                                            Container(
+                                                // height: 50.0,
+                                                // width: 50.0,
+                                                child: Image.asset(
+                                                    "assets/images/Sadness.png",
+                                                    width: 92,
+                                                    height: 50)),
+                                            Container(
+                                                // height: 50.0,
+                                                // width: 50.0,
+                                                child: Image.asset(
+                                                    "assets/images/Fear.png",
+                                                    width: 92,
+                                                    height: 50)),
+                                            Container(
+                                                // height: 50.0,
+                                                // width: 50.0,
+                                                child: Image.asset(
+                                                    "assets/images/Disgust.png",
+                                                    width: 92,
+                                                    height: 50)),
+                                            Container(
+                                                // height: 50.0,
+                                                // width: 50.0,
+                                                child: Image.asset(
+                                                    "assets/images/Anger.png",
+                                                    width: 92,
+                                                    height: 50)),
+                                            Container(
+                                                // height: 50.0,
+                                                // width: 50.0,
+                                                child: Image.asset(
+                                                    "assets/images/Surprise.png",
+                                                    width: 92,
+                                                    height: 50))
+                                          ],
                                         )
-                                        // SizedBox(height: 10),
-                                        // Container(
-                                        //   width: 100,
-                                        //   height: 80,
-                                        //   decoration:
-                                        //       const BoxDecoration(
-                                        //     borderRadius:
-                                        //         BorderRadius.all(
-                                        //             Radius.circular(
-                                        //                 10)),
-                                        //   ),
-                                        // ),
                                       ],
                                     ),
                                   ))),
