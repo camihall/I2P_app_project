@@ -61,6 +61,7 @@ class _MoodTrackerBarState extends State<MoodTrackerBar> {
         height: 400,
         child: Scaffold(
             body: SfCartesianChart(
+              backgroundColor: Color(0xFFFFFF),
           // plotAreaBackgroundColor: Color(0xff0B3F24),
           // title: ChartTitle(text: 'Monthly Mood Tracker'),
           // legend: Legend(isVisible: true),
@@ -91,12 +92,12 @@ class _MoodTrackerBarState extends State<MoodTrackerBar> {
 
   List<MoodData> getChartData() {
     final List<MoodData> chartData = [
-      MoodData('Happy', 1),
-      MoodData('Fear', 8),
-      MoodData('Surprised', 3),
-      MoodData('Sad', 7),
-      MoodData('Disgust', 12),
-      MoodData('Angry', 5),
+      MoodData('Happiness', 1),
+      MoodData('Sadness', 8),
+      MoodData('Fear', 3),
+      MoodData('Disgust', 7),
+      MoodData('Anger', 12),
+      MoodData('Surprise', 5),
     ];
     return chartData;
   }

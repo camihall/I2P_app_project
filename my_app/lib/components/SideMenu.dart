@@ -60,7 +60,9 @@ class SideMenu extends StatelessWidget {
           DrawerListTile(
             title: "FAQ",
             svgSrc: "assets/icons/menu_setting.svg",
-            press: () {},
+            press: () {
+              AutoRouter.of(context).push(const FAQRoute());
+            },
           ),
           DrawerListTile(
             title: "Settings",

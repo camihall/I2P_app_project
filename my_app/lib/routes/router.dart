@@ -6,6 +6,7 @@ import 'package:my_app/views/dailyCheckIn.dart';
 import 'package:my_app/views/dashboard.dart';
 import 'package:my_app/views/dashboardMain.dart';
 import 'package:my_app/views/exercises.dart';
+import 'package:my_app/views/faq.dart';
 import 'package:my_app/views/journal.dart';
 
 import 'package:my_app/views/landing.dart';
@@ -48,6 +49,12 @@ import '../views/landing.dart';
           page: StepsRoute,
           name: 'StepsRoute',
           path: 'about',
+          usesPathAsKey: true
+        ),
+        AutoRoute(
+          page: FAQ,
+          name: 'FAQRoute',
+          path: 'faq',
           usesPathAsKey: true
         ),
       ],
