@@ -105,6 +105,8 @@ class hoverchange extends StatefulWidget {
 }
 
 class _hoverchangeState extends State<hoverchange> {
+  List<bool> clicked = [false, false, false, false, false, false];
+  List<Color> faceColors = [(Colors.red[800])!, (Colors.blue[700])!, (Colors.lightGreen[700])!, (Colors.purple[700])!, (Colors.pink[300])!, Colors.yellow];
 
   @override
   Widget build(BuildContext context) {
@@ -121,115 +123,28 @@ class _hoverchangeState extends State<hoverchange> {
                 crossAxisAlignment: CrossAxisAlignment.center,                                  
                 children: [
 
-                  OnHoverCheckIn(
-                    builder: ((isHovered) {
-                      final svgcolor = isHovered ? SvgPicture.asset('assets/icons/angry-emoji.svg', height: 150, width: 150, color: Colors.red[800],): SvgPicture.asset('assets/icons/angry-emoji.svg', height: 150, width: 150,);
-                      final textColor = isHovered ? Text("Angry", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.red[800],),) : const Text("Angry", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),);
-                      
-                      return Column(
-                        children: [
-                          ReRoute(
-                            svg: svgcolor, 
-                            press: () {}
-                            ),
-                          //svgcolor,
-                          const SizedBox(height: 10,),
-                          textColor
-                    ],
-                  );
-                })
-                    
-              ),
-
-                    const Padding(padding: EdgeInsets.all(15)),
-
-                    OnHoverCheckIn(
-                      builder:((isHovered) {
-                        final svgcolor = isHovered ? SvgPicture.asset('assets/icons/sad-emoji.svg', height: 150, width: 150, color: Colors.blue[700],): SvgPicture.asset('assets/icons/sad-emoji.svg', height: 150, width: 150,);
-                        final textColor = isHovered ? Text("Sad", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.blue[700],),) : const Text("Sad", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),);
-                        
-                        return Column(
-                            children: [
-                              svgcolor,
-                              const SizedBox(height: 10,),
-                              textColor
-                            ],
-                          );
-                      }     
-                    )
-                  ),
-
+                  MoodSelect(pic: 'assets/icons/angry-emoji.svg', mood: 'Angry', color: (Colors.red[800])!,),
+                  
                   const Padding(padding: EdgeInsets.all(15)),
 
-                  OnHoverCheckIn(
-                      builder:((isHovered) {
-                        final svgcolor = isHovered ? SvgPicture.asset('assets/icons/disgust-emoji1.svg', height: 150, width: 150, color: Colors.lightGreen[700],): SvgPicture.asset('assets/icons/disgust-emoji1.svg', height: 150, width: 150,);
-                        final textColor = isHovered ? Text("Disgusted", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.lightGreen[700],),) : const Text("Disgusted", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),);
-                        
-                        return Column(
-                            children: [
-                              svgcolor,
-                              const SizedBox(height: 10,),
-                              textColor
-                            ],
-                          );
-                      }     
-                    )
-                  ),
-
+                  MoodSelect(pic: 'assets/icons/sad-emoji.svg', mood: 'Sad', color: (Colors.blue[700])!,),
+                  
                   const Padding(padding: EdgeInsets.all(15)),
 
-                  OnHoverCheckIn(
-                      builder:((isHovered) {
-                        final svgcolor = isHovered ? SvgPicture.asset('assets/icons/fear-emoji.svg', height: 150, width: 150, color: Colors.purple[700],): SvgPicture.asset('assets/icons/fear-emoji.svg', height: 150, width: 150,);
-                        final textColor = isHovered ? Text("Fear", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.purple[700],),) : const Text("Fear", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),);
-                        
-                        return Column(
-                            children: [
-                              svgcolor,
-                              const SizedBox(height: 10,),
-                              textColor
-                            ],
-                          );
-                      }     
-                    )
-                  ),
-
+                  MoodSelect(pic: 'assets/icons/disgust-emoji1.svg', mood: 'Disgust', color: (Colors.lightGreen[700])!,),
+                  
                   const Padding(padding: EdgeInsets.all(15)),
-        
-                  OnHoverCheckIn(
-                      builder:((isHovered) {
-                        final svgcolor = isHovered ? SvgPicture.asset('assets/icons/suprised-emoji.svg', height: 150, width: 150, color: Colors.pink[300],): SvgPicture.asset('assets/icons/suprised-emoji.svg', height: 150, width: 150,);
-                        final textColor = isHovered ? Text("Suprised", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.pink[300],),) : const Text("Suprised", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),);
-                        
-                        return Column(
-                            children: [
-                              svgcolor,
-                              const SizedBox(height: 10,),
-                              textColor
-                            ],
-                          );
-                      }     
-                    )
-                  ),
 
+                  MoodSelect(pic: 'assets/icons/fear-emoji.svg', mood: 'Fear', color: (Colors.purple[700])!,),
+                  
                   const Padding(padding: EdgeInsets.all(15)),
                   
-                  OnHoverCheckIn(
-                      builder:((isHovered) {
-                        final svgcolor = isHovered ? SvgPicture.asset('assets/icons/happy-emoji.svg', height: 150, width: 150, color: Colors.yellow,): SvgPicture.asset('assets/icons/happy-emoji.svg', height: 150, width: 150,);
-                        final textColor = isHovered ? const Text("Happy", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.yellow,),) : const Text("Happy", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),);
-                        
-                        return Column(
-                            children: [
-                              svgcolor,
-                              const SizedBox(height: 10,),
-                              textColor
-                            ],
-                          );
-                      }     
-                    )
-                  ),
+                  MoodSelect(pic: 'assets/icons/suprised-emoji.svg', mood: 'Suprised', color: (Colors.pink[300])!,),
+                  
+                  const Padding(padding: EdgeInsets.all(15)),
+
+                  MoodSelect(pic: 'assets/icons/happy-emoji.svg', mood: 'Happy', color: (Colors.yellow[700])!,),
+
                 ],
               ),
             ),
@@ -238,7 +153,6 @@ class _hoverchangeState extends State<hoverchange> {
       );
     }
   }
-
 
 class btn_submit extends StatefulWidget {
   const btn_submit({ Key? key }) : super(key: key);
@@ -264,7 +178,7 @@ class _btn_submitState extends State<btn_submit> {
                 );
               },
             );
-        }),
+        }), x: 0, y: -15, z: 0,
         
           )  
         );
@@ -285,6 +199,49 @@ class ReRoute extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: svg
+    );
+  }
+}
+
+class MoodSelect extends StatefulWidget {
+  final String pic;
+  final String mood;
+  final Color color;
+  const MoodSelect({ Key? key, required this.pic, required this.mood, required this.color }) : super(key: key);
+
+  @override
+  State<MoodSelect> createState() => _MoodSelectState();
+}
+
+class _MoodSelectState extends State<MoodSelect> {
+  
+  @override
+  Widget build(BuildContext context) {
+    widget.pic;
+    widget.mood;
+    widget.color;
+    bool _buttonSelected = false;
+
+    return OnHoverCheckIn(
+      builder:((isHovered) {
+        final svgcolor = isHovered || _buttonSelected ? SvgPicture.asset(widget.pic, height: 150, width: 150, color: widget.color) 
+        : SvgPicture.asset(widget.pic, height: 150, width: 150,);
+        final textColor = isHovered || _buttonSelected ? Text(widget.mood, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: widget.color,),) : Text(widget.mood, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),);
+
+        return GestureDetector(
+          onTap:() {
+            _buttonSelected = !_buttonSelected;
+          },
+          child: Column(
+            children: [
+              svgcolor,
+              const Divider(),
+              textColor
+              ]
+            ),
+          );
+        }
+      ), x: 0, y: -15, z: 0, //How much to move up or down the icon on hover
     );
   }
 }

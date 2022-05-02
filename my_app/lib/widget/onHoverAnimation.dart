@@ -3,8 +3,10 @@ import 'package:sprung/sprung.dart';
 
 class OnHoverCheckIn extends StatefulWidget {
   final Widget Function(bool isHovered) builder;
-
-  const OnHoverCheckIn({ Key? key, required this.builder }) : super(key: key);
+  final double x;
+  final double y;
+  final double z;
+  const OnHoverCheckIn({ Key? key, required this.builder, required this.x, required this.y, required this.z }) : super(key: key);
 
   @override
   State<OnHoverCheckIn> createState() => _OnHoverCheckInState();
@@ -15,7 +17,10 @@ class _OnHoverCheckInState extends State<OnHoverCheckIn> {
 
   @override
   Widget build(BuildContext context) {
-    final hoveredTransform = Matrix4.identity()..translate(0, -15, 0);
+    widget.x;
+    widget.y;
+    widget.z;
+    final hoveredTransform = Matrix4.identity()..translate(widget.x, widget.y, widget.z);
     final transform = isHovered ? hoveredTransform : Matrix4.identity();
 
     return MouseRegion(
@@ -35,5 +40,4 @@ class _OnHoverCheckInState extends State<OnHoverCheckIn> {
     setState(() {
       this.isHovered = isHovered;
     });
-
 }
