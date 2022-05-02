@@ -6,35 +6,58 @@ class DashboardHeader extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
-    paint.color = const Color(0xffB1CEBF);
-    paint.style = PaintingStyle.fill; // Change this to fill
+    paint.color = const Color(0xffbbdbca);
+    paint.style = PaintingStyle.fill;
 
     var path = Path();
 
-    path.moveTo(0, size.height * 0.6);
+    path.moveTo(0, size.height * 0.5);
     path.quadraticBezierTo(
-        size.width * 0.3, size.height, size.width * 0.6, size.height * 0.6);
+        size.width * 0.3, size.height, size.width * 0.6, size.height * 0.65);
     path.quadraticBezierTo(
-        size.width * 0.9, size.height *0.3, size.width, size.height * 0.6);
+        size.width * 0.9, size.height * 0.3, size.width, size.height * 0.5);
     path.lineTo(size.width, 0);
     path.lineTo(0, 0);
 
     canvas.drawPath(path, paint);
 
+    var paint2 = Paint();
+    paint2.color = const Color(0xffcce3d7);
+    paint2.style = PaintingStyle.fill;
 
-    paint.color = const Color(0xffF5F5F5);
-    paint.style = PaintingStyle.stroke;
+    var path2 = Path();
 
-    path.moveTo(0, size.height * 0.6);
-    path.quadraticBezierTo(
-        size.width * 0.3, size.height, size.width * 0.6, size.height * 0.6);
-    path.quadraticBezierTo(
-        size.width * 0.9, size.height *0.3, size.width, size.height * 0.6);
-    path.lineTo(size.width, 0);
-    path.lineTo(0, 0);
+    path2.moveTo(0, size.height * 0.6);
+    path2.quadraticBezierTo(
+        size.width * 0.3, size.height, size.width * 0.6, size.height * 0.7);
+    path2.quadraticBezierTo(
+        size.width * 0.9, size.height * 0.6, size.width, size.height * 0.6);
+    path2.lineTo(size.width, size.height * 0.5);
+    path2.quadraticBezierTo(size.width * 0.9, size.height * 0.3,
+        size.width * 0.6, size.height * 0.65);
+    path2.quadraticBezierTo(
+        size.width * 0.3, size.height, 0, size.height * 0.5);
 
-    canvas.drawPath(path, paint);
-    
+    canvas.drawPath(path2, paint2);
+
+    var paint3 = Paint();
+    paint3.color = const Color(0xffd7e7df);
+    paint3.style = PaintingStyle.fill;
+
+    var path3 = Path();
+
+    path3.moveTo(0, size.height * 0.7);
+    path3.quadraticBezierTo(
+        size.width * 0.3, size.height, size.width * 0.6, size.height * 0.8);
+    path3.quadraticBezierTo(
+        size.width * 0.9, size.height * 0.6, size.width, size.height * 0.7);
+    path3.lineTo(size.width, size.height * 0.6);
+    path3.quadraticBezierTo(size.width * 0.9, size.height * 0.4,
+        size.width * 0.6, size.height * 0.7);
+    path3.quadraticBezierTo(
+        size.width * 0.3, size.height, 0, size.height * 0.6);
+
+    canvas.drawPath(path3, paint3);
   }
 
   @override

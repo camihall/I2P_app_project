@@ -6,6 +6,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:my_app/routes/router.gr.dart';
 
 import '../views/exercises.dart';
+import '../views/sos.dart';
+import '../views/Steps.dart';
+import '../views/faq.dart';
 
 class SideMenu extends StatelessWidget {
   BuildContext context;
@@ -42,16 +45,38 @@ class SideMenu extends StatelessWidget {
             title: "Exercises",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
+              AutoRouter.of(context).push(const ExercisesRoute());
+            },
+          ),
+          DrawerListTile(
+            title: "Resources",
+            svgSrc: "assets/icons/menu_tran.svg",
+            press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => exercises()),
+                MaterialPageRoute(builder: (context) => SOSRoute()),
+              );
+            },
+          ),
+          DrawerListTile(
+            title: "About",
+            svgSrc: "assets/icons/menu_tran.svg",
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => StepsRoute()),
               );
             },
           ),
           DrawerListTile(
             title: "FAQ",
             svgSrc: "assets/icons/menu_setting.svg",
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FaqRoute()),
+              );
+            },
           ),
           DrawerListTile(
             title: "Settings",
