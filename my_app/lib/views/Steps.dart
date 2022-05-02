@@ -6,24 +6,14 @@ import '../components/MenuController.dart';
 import '../responsive.dart';
 
 class StepsRoute extends StatelessWidget {
+  const StepsRoute({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
-      title: 'About',
-      home: Scaffold(
-        body: SafeArea(
+    return SafeArea(
             child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // We want this side menu only for large screen
-            if (Responsive.isDesktop(context))
-              Expanded(
-                // default flex = 1
-                // and it takes 1/6 part of the screen
-                child: SideMenu(context: context),
-              ),
             Expanded(
                 // It takes 5/6 part of the screen
                 flex: 5,
@@ -98,9 +88,7 @@ based on their needs.''',
                   ),
                 ))
           ],
-        )),
-      ),
-    );
+        ));
   }
 }
 

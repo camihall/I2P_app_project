@@ -1,5 +1,6 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
-import 'package:my_app/components/SideMenu.dart';
 import 'package:provider/provider.dart';
 import '../components/DashboardHeader.dart';
 import '../components/MenuController.dart';
@@ -7,37 +8,31 @@ import '../responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SOSRoute extends StatelessWidget {
+  const SOSRoute({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
-      title: 'Resources',
-      home: Scaffold(
-        body: SafeArea(
-            child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // We want this side menu only for large screen
-            if (Responsive.isDesktop(context))
-              Expanded(
-                // default flex = 1
-                // and it takes 1/6 part of the screen
-                child: SideMenu(context: context),
-              ),
-            Expanded(
-                // It takes 5/6 part of the screen
-                flex: 5,
-                child: SafeArea(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        CustomPaint(
-                          painter: DashboardHeader(),
-                          child: SizedBox(
-                              height: 350,
-                              child: Column(
+    return SafeArea(
+        child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+            // It takes 5/6 part of the screen
+            flex: 5,
+            child: SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    CustomPaint(
+                      painter: DashboardHeader(),
+                      child: SizedBox(
+                          height: 350,
+                          child: Column(
+                            children: [
+                              const SizedBox(height: 100),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   const SizedBox(height: 100),
                                   Row(
@@ -62,20 +57,20 @@ class SOSRoute extends StatelessWidget {
                                     ],
                                   ),
                                 ],
-                              )),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(left: 50, right: 50),
-                          child: MySquares(),
-                        )
-                      ],
+                              ),
+                            ],
+                          )),
                     ),
-                  ),
-                ))
-          ],
-        )),
-      ),
-    );
+                    Container(
+                      padding: const EdgeInsets.only(left: 50, right: 50),
+                      child: const MySquares(),
+                    )
+                  ],
+                ),
+              ),
+            ))
+      ],
+    ));
   }
 }
 
@@ -84,19 +79,18 @@ class MySquares extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Padding(
-      padding: EdgeInsets.only(bottom: 14),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 14),
       child: Column(children: [
-        Align(
+        const Align(
             alignment: Alignment.topLeft,
             child: Text("Mental Health and Wellbeing",
                 style: TextStyle(fontSize: 18))),
         Padding(
-            padding: EdgeInsets.only(bottom: 14),
+            padding: const EdgeInsets.only(bottom: 14),
             child: Row(children: [
               Padding(
-                  padding: EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.only(right: 10),
                   child: Column(
                     children: [
                       Ink(
@@ -109,7 +103,7 @@ class MySquares extends StatelessWidget {
                                   fit: BoxFit.fill)),
                           child: InkWell(
                             onTap: () async {
-                              final url = "https://www.miraclecourt.com/";
+                              const url = "https://www.miraclecourt.com/";
                               if (await canLaunch(url)) {
                                 await launch(
                                   url,
@@ -117,11 +111,11 @@ class MySquares extends StatelessWidget {
                               }
                             },
                           )),
-                      Text("Miracle Court"),
+                      const Text("Miracle Court"),
                     ],
                   )),
               Padding(
-                  padding: EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.only(right: 10),
                   child: Column(children: [
                     Ink(
                         height: MediaQuery.of(context).size.height * .15,
@@ -134,7 +128,7 @@ class MySquares extends StatelessWidget {
                                 fit: BoxFit.fill)),
                         child: InkWell(
                           onTap: () async {
-                            final url = "http://www.savingcain.org/";
+                            const url = "http://www.savingcain.org/";
                             if (await canLaunch(url)) {
                               await launch(
                                 url,
@@ -142,7 +136,7 @@ class MySquares extends StatelessWidget {
                             }
                           },
                         )),
-                    Text("SavingCain.org"),
+                    const Text("SavingCain.org"),
                   ])),
               Column(
                 children: [
@@ -156,7 +150,7 @@ class MySquares extends StatelessWidget {
                               fit: BoxFit.fill)),
                       child: InkWell(
                         onTap: () async {
-                          final url = "https://www.headspace.com/";
+                          const url = "https://www.headspace.com/";
                           if (await canLaunch(url)) {
                             await launch(
                               url,
@@ -164,22 +158,22 @@ class MySquares extends StatelessWidget {
                           }
                         },
                       )),
-                  Text("Headspace"),
+                  const Text("Headspace"),
                 ],
               )
             ])),
-        Align(
+        const Align(
             alignment: Alignment.topLeft,
             child: Padding(
                 padding: EdgeInsets.only(bottom: 10),
                 child: Text("Deradicalization NGOs",
                     style: TextStyle(fontSize: 18)))),
         Padding(
-            padding: EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(bottom: 10),
             child: Row(
               children: [
                 Padding(
-                    padding: EdgeInsets.only(right: 10),
+                    padding: const EdgeInsets.only(right: 10),
                     child: Column(
                       children: [
                         Ink(
@@ -192,7 +186,7 @@ class MySquares extends StatelessWidget {
                                     fit: BoxFit.fill)),
                             child: InkWell(
                               onTap: () async {
-                                final url = "https://www.parents4peace.org/";
+                                const url = "https://www.parents4peace.org/";
                                 if (await canLaunch(url)) {
                                   await launch(
                                     url,
@@ -200,7 +194,7 @@ class MySquares extends StatelessWidget {
                                 }
                               },
                             )),
-                        Text("Parents for Peace"),
+                        const Text("Parents for Peace"),
                       ],
                     )),
                 Column(
@@ -216,7 +210,7 @@ class MySquares extends StatelessWidget {
                                 fit: BoxFit.fill)),
                         child: InkWell(
                           onTap: () async {
-                            final url = "https://beyondbarriersusa.org/";
+                            const url = "https://beyondbarriersusa.org/";
                             if (await canLaunch(url)) {
                               await launch(
                                 url,
@@ -224,12 +218,12 @@ class MySquares extends StatelessWidget {
                             }
                           },
                         )),
-                    Text("Beyond Barriers"),
+                    const Text("Beyond Barriers"),
                   ],
                 ),
               ],
             )),
-        Padding(
+        const Padding(
             padding: EdgeInsets.only(bottom: 10),
             child: Align(
                 alignment: Alignment.topLeft,
@@ -238,7 +232,7 @@ class MySquares extends StatelessWidget {
         Row(
           children: [
             Padding(
-                padding: EdgeInsets.only(right: 10),
+                padding: const EdgeInsets.only(right: 10),
                 child: Column(
                   children: [
                     Ink(
@@ -252,7 +246,7 @@ class MySquares extends StatelessWidget {
                                 fit: BoxFit.fill)),
                         child: InkWell(
                           onTap: () async {
-                            final url = "https://www.psychologytoday.com/us";
+                            const url = "https://www.psychologytoday.com/us";
                             if (await canLaunch(url)) {
                               await launch(
                                 url,
@@ -260,7 +254,7 @@ class MySquares extends StatelessWidget {
                             }
                           },
                         )),
-                    Text("Psychology Today"),
+                    const Text("Psychology Today"),
                   ],
                 )),
             Column(
@@ -275,7 +269,7 @@ class MySquares extends StatelessWidget {
                             fit: BoxFit.fill)),
                     child: InkWell(
                       onTap: () async {
-                        final url = "https://www.zocdoc.com/";
+                        const url = "https://www.zocdoc.com/";
                         if (await canLaunch(url)) {
                           await launch(
                             url,
@@ -283,12 +277,12 @@ class MySquares extends StatelessWidget {
                         }
                       },
                     )),
-                Text("ZocDoc"),
+                const Text("ZocDoc"),
               ],
             ),
           ],
         ),
       ]),
-    ));
+    );
   }
 }

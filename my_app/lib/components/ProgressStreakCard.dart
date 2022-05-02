@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constants.dart';
 
 class ProgressStreakCard extends StatelessWidget {
   String title;
@@ -19,7 +17,7 @@ class ProgressStreakCard extends StatelessWidget {
               onTap: () {
                 debugPrint('Card tapped.');
               },
-              child: Container(
+              child: SizedBox(
                 // padding: const EdgeInsets.all(defaultPadding),
                 width: 100,
                 height: 120,
@@ -43,16 +41,14 @@ class ProgressStreakCard extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    Text(
-                      title!,
-                      style: TextStyle(
-                          color: Color(0xff0B3F24),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center
-                    ),
+                    Text(title!,
+                        style: TextStyle(
+                            color: Color(0xff0B3F24),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center),
                   ],
                 ),
               ))),

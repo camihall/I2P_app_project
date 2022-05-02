@@ -44,7 +44,8 @@ class HeaderWidget extends StatelessWidget {
         SizedBox(
           width: 200,
           height: 200,
-          child: Image.asset('assets/images/officialLogo.png'),
+          child: Image.asset('assets/images/officialLogo.png',fit: BoxFit.contain,),
+          
         ),
 
         Row(
@@ -113,6 +114,7 @@ class LandingDescription extends StatelessWidget {
         const SizedBox(height:100),
         // title
         const FittedBox(
+          fit: BoxFit.fitWidth,
           child: Text('''A tool to help the process of disengagement.''',
                 style: TextStyle(
                 color: Color(0xff28313b),

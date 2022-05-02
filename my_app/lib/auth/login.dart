@@ -79,12 +79,16 @@ class _LoginPageState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    final Size _size = MediaQuery.of(context).size;
     return Scaffold(
         body: Container(
-            decoration: BoxDecoration(
+            alignment: AlignmentDirectional.center,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("../assets/images/loginbg.png"),
-                fit: BoxFit.cover,
+                image: AssetImage("assets/images/loginbg.png"),
+                fit: BoxFit.fill,
                 repeat: ImageRepeat.repeatY,
               ), /*color: Color(0xFFE0ECE6)*/
             ),
@@ -93,18 +97,22 @@ class _LoginPageState extends State<Login> {
                     padding: const EdgeInsets.all(32.0),
                     child: Center(
                         child: Container(
-                            height: MediaQuery.of(context).size.height * .70,
-                            width: MediaQuery.of(context).size.width * .81,
+                            width: _size.width >= 850
+                                ? _size.width * 0.4
+                                : _size.width * 0.8,
+                            height: _size.width >= 850
+                                ? _size.height * 0.6
+                                : _size.height * 0.6,
                             decoration: BoxDecoration(
-                              color: new Color(0xFF0B3F24),
+                              color: const Color(0xFF0B3F24),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0)),
+                                  const BorderRadius.all(Radius.circular(10.0)),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 5,
                                   blurRadius: 7,
-                                  offset: Offset(
+                                  offset: const Offset(
                                       0, 3), // changes position of shadow
                                 ),
                               ],
@@ -123,20 +131,20 @@ class _LoginPageState extends State<Login> {
                                       width: MediaQuery.of(context).size.width *
                                           .24,
                                     ))),
-                                Padding(
-                                    padding: EdgeInsets.only(left: 14),
-                                    child: const Text("Log in",
+                                const Padding(
+                                    padding: EdgeInsets.only(left: 24),
+                                    child: Text("Log in",
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 20))),
-                                Padding(
+                                const Padding(
                                     padding: EdgeInsets.only(left: 24, top: 6),
-                                    child: const Text(
+                                    child: Text(
                                       'Email address/Username',
                                       style: TextStyle(color: Colors.white),
                                     )),
                                 Padding(
-                                    padding: EdgeInsets.only(
+                                    padding: const EdgeInsets.only(
                                         left: 24, top: 2, right: 24),
                                     child: TextField(
                                       focusNode: textFocusNodeEmail,
@@ -182,14 +190,14 @@ class _LoginPageState extends State<Login> {
                                       ),
                                     )),
                                 const SizedBox(height: 10),
-                                Padding(
+                                const Padding(
                                     padding: EdgeInsets.only(left: 24, top: 6),
-                                    child: const Text(
+                                    child: Text(
                                       'Password',
                                       style: TextStyle(color: Colors.white),
                                     )),
                                 Padding(
-                                    padding: EdgeInsets.only(
+                                    padding: const EdgeInsets.only(
                                         left: 24, top: 2, right: 24),
                                     child: TextField(
                                       focusNode: textFocusNodePassword,

@@ -21,3 +21,18 @@ class RouteGuard extends AutoRouteGuard {
     });
   }
 }
+
+class LoginGuard extends AutoRouteGuard {
+    @override
+  void onNavigation(NavigationResolver resolver, StackRouter router) {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user != null) {
+        router.push(
+          const DashboardRoute(),
+        );
+      } else {
+        return resolver.next();
+      }
+    });
+  }
+}

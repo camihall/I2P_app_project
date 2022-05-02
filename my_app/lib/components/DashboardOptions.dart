@@ -1,7 +1,6 @@
 import 'package:my_app/responsive.dart';
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
-import '../views/sos.dart';
 import 'DashboardOptionCard.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:my_app/routes/router.gr.dart';
@@ -46,7 +45,7 @@ List options = [
   DashboardOption(
       svgSrc: "assets/icons/Resources.svg",
       title: "Resources",
-      route: SOSRoute()),
+      route: const SOSRoute()),
 ];
 
 class DashboardOptions extends StatelessWidget {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constants.dart';
 
 class ProgressCountCard extends StatelessWidget {
   String title;
@@ -19,7 +17,7 @@ class ProgressCountCard extends StatelessWidget {
               onTap: () {
                 debugPrint('Card tapped.');
               },
-              child: Container(
+              child: SizedBox(
                 // padding: const EdgeInsets.all(defaultPadding),
                 width: 220,
                 height: 120,
@@ -27,7 +25,7 @@ class ProgressCountCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Container(
                       width: 100,
                       height: 80,
@@ -36,23 +34,21 @@ class ProgressCountCard extends StatelessWidget {
                       ),
                       child: Text(
                         numdays.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color(0xff0B3F24),
                             fontWeight: FontWeight.bold,
                             fontSize: 50),
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    Text(
-                      title!,
-                      style: TextStyle(
-                          color: Color(0xff0B3F24),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center
-                    ),
+                    Text(title!,
+                        style: const TextStyle(
+                            color: Color(0xff0B3F24),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center),
                   ],
                 ),
               ))),

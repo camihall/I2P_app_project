@@ -5,25 +5,15 @@ import '../components/DashboardHeader.dart';
 import '../components/MenuController.dart';
 import '../responsive.dart';
 
-class FaqRoute extends StatelessWidget {
+class FAQ extends StatelessWidget {
+  const FAQ({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
-      title: 'Frequently Asked Questions',
-      home: Scaffold(
-        body: SafeArea(
+    return SafeArea(
             child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // We want this side menu only for large screen
-            if (Responsive.isDesktop(context))
-              Expanded(
-                // default flex = 1
-                // and it takes 1/6 part of the screen
-                child: SideMenu(context: context),
-              ),
             Expanded(
                 // It takes 5/6 part of the screen
                 flex: 5,
@@ -66,10 +56,10 @@ class FaqRoute extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.only(left: 50, right: 50),
                           child: RichText(
-                            text: TextSpan(
+                            text: const TextSpan(
                               text: '',
                               style: TextStyle(color: Color(0xff0B3F24)),
-                              children: const <TextSpan>[
+                              children: <TextSpan>[
                                 TextSpan(text: 'What is CBT?\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
                                 TextSpan(
                                   text: '''
@@ -154,8 +144,7 @@ class FaqRoute extends StatelessWidget {
                   ),
                 ))
           ],
-        )),
-      ),
+        ),
     );
   }
 }

@@ -5,11 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:my_app/routes/router.gr.dart';
 
-import '../views/exercises.dart';
-import '../views/sos.dart';
-import '../views/Steps.dart';
-import '../views/faq.dart';
-
 class SideMenu extends StatelessWidget {
   BuildContext context;
   SideMenu({
@@ -52,30 +47,21 @@ class SideMenu extends StatelessWidget {
             title: "Resources",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SOSRoute()),
-              );
+              AutoRouter.of(context).push(const SOSRoute());
             },
           ),
           DrawerListTile(
             title: "About",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => StepsRoute()),
-              );
+              AutoRouter.of(context).push(const StepsRoute());
             },
           ),
           DrawerListTile(
             title: "FAQ",
             svgSrc: "assets/icons/menu_setting.svg",
             press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FaqRoute()),
-              );
+              AutoRouter.of(context).push(const StepsRoute());
             },
           ),
           DrawerListTile(
