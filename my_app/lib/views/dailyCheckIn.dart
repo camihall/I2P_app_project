@@ -40,15 +40,31 @@ class CheckIn extends StatelessWidget {
                                   context.read<MenuController>().controlMenu,
                             ),
                           const SizedBox(width: 30),
-                          const Text("Daily Check In",
+                          Column(
+                            children: const [
+                            Text("Daily Check In",
                               style: TextStyle(
                                   color: Color(0xff0B3F24),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 40)),
+                            SizedBox(width: 10,),
+                            Text("Connect With Yourself",
+                                style: TextStyle(
+                                  color: Color(0x000b3f24),
+                                  fontSize: 18
+                                ),
+                            ),
+                            ]
+                          ),
                         ],
                       ),
                     ],
                   )),
+            ),
+            Container(
+              alignment: Alignment.topLeft,
+              margin: EdgeInsets.all(20),
+              child: const backButton()
             ),
             Center(
             child: Column(children: [
@@ -203,6 +219,8 @@ class ReRoute extends StatelessWidget {
   }
 }
 
+
+
 class MoodSelect extends StatefulWidget {
   final String pic;
   final String mood;
@@ -235,7 +253,7 @@ class _MoodSelectState extends State<MoodSelect> {
           child: Column(
             children: [
               svgcolor,
-              const Divider(),
+              const SizedBox(height: 10,),
               textColor
               ]
             ),
@@ -243,5 +261,31 @@ class _MoodSelectState extends State<MoodSelect> {
         }
       ), x: 0, y: -15, z: 0, //How much to move up or down the icon on hover
     );
+  }
+}
+
+class backButton extends StatefulWidget {
+  const backButton({ Key? key }) : super(key: key);
+
+  @override
+  State<backButton> createState() => _backButtonState();
+}
+
+class _backButtonState extends State<backButton> {
+  @override
+  Widget build(BuildContext context) {
+    return 
+      OnHoverCheckIn(
+        builder: ((isHovered) {
+          final svgColor = SvgPicture.asset("assets/icons/Back.svg", height: 20, width: 20,);
+          return ReRoute(
+          svg: svgColor, 
+          press: () {
+            this.context.navigateBack();
+          }
+            );
+        }), x: 0, y: -15, z: 0,
+        
+    );  
   }
 }
