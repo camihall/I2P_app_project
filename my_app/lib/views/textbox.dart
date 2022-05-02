@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import '../components/DashboardHeader.dart';
 import '../components/MenuController.dart';
@@ -5,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:my_app/responsive.dart';
 import '../../../constants.dart';
 import 'exercises.dart';
+
+String now = DateFormat('MM/dd/yyyy').format(DateTime.now());
 
 class TxtbxRoute extends StatelessWidget {
   const TxtbxRoute({Key? key}) : super(key: key);
@@ -70,7 +73,7 @@ class TxtbxRoute extends StatelessWidget {
                                     //       fontWeight: FontWeight.bold),
                                     // ),
                                     const SizedBox(height: 10),
-                                    const Text("April 17, 2022"),
+                                    Text(now),
                                     const SizedBox(height: 10),
                                     Card(
                                       color: const Color(0xffB1CEBF),

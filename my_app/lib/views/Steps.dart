@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/components/SideMenu.dart';
+import 'package:provider/provider.dart';
+import '../components/DashboardHeader.dart';
+import '../components/MenuController.dart';
+import '../responsive.dart';
 
 class StepsRoute extends StatelessWidget {
   @override
@@ -6,14 +11,95 @@ class StepsRoute extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      scrollBehavior: const ConstantScrollBehavior(),
-      title: 'About the SMART Recovery Plan',
+      title: 'About',
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text('About the SMART Recovery Plan'),
-            backgroundColor: Colors.green,
-          ),
-          body: const StepsList()),
+        body: SafeArea(
+            child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // We want this side menu only for large screen
+            if (Responsive.isDesktop(context))
+              Expanded(
+                // default flex = 1
+                // and it takes 1/6 part of the screen
+                child: SideMenu(context: context),
+              ),
+            Expanded(
+                // It takes 5/6 part of the screen
+                flex: 5,
+                child: SafeArea(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CustomPaint(
+                          painter: DashboardHeader(),
+                          child: SizedBox(
+                              height: 350,
+                              child: Column(
+                                children: [
+                                  const SizedBox(height: 100),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      const SizedBox(width: 20),
+                                      if (!Responsive.isDesktop(context))
+                                        IconButton(
+                                          icon: const Icon(Icons.menu),
+                                          iconSize: 40,
+                                          onPressed: context
+                                              .read<MenuController>()
+                                              .controlMenu,
+                                        ),
+                                      const SizedBox(width: 30),
+                                      const Text("About",
+                                          style: TextStyle(
+                                              color: Color(0xff0B3F24),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 40)),
+                                    ],
+                                  ),
+                                ],
+                              )),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(left: 50, right: 50),
+                          child: RichText(
+                            text: TextSpan(
+                              text: '',
+                              style: TextStyle(color: Colors.black),
+                              children: const <TextSpan>[
+                                TextSpan(text: '4 Points of our SMART Recovery Plan Based Program\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
+                                TextSpan(
+                                  text: 
+'''\n1. Building and maintaining the motivation to change.
+2. Coping with urges to participate in extremist activities.
+3. Managing thoughts, feelings, and behaviors in an effective way without addictive behaviors.
+4. Living a balanced, positive, and healthy life.''', 
+                                  style: TextStyle(fontSize: 16)),
+                                TextSpan(text: '\n\n\nWhat is the SMART Recovery Plan?', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
+                                TextSpan(
+                                  text: 
+'''\n\nSelf-Management and Recovery Training (SMART) is a support 
+program for people with addictions and behavioral disorders. It 
+teaches people how to control their addictive behavior by focusing 
+on underlying thoughts and feelings. Participants in SMART learn skills 
+to manage their cravings and urges for the long term. SMART proposes a 
+4-point program. Participants can tackle a specific point in any order 
+based on their needs.''', 
+                                  style: TextStyle(fontSize: 16)),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ))
+          ],
+        )),
+      ),
     );
   }
 }
