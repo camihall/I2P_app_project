@@ -79,11 +79,10 @@ class MySquares extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Padding(
-      padding: EdgeInsets.only(bottom: 14),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 14),
       child: Column(children: [
-        Align(
+        const Align(
             alignment: Alignment.topLeft,
             child: Text("Mental Health and Wellbeing",
                 style: TextStyle(fontSize: 18))),
@@ -204,7 +203,7 @@ class MySquares extends StatelessWidget {
             ),
           ],
         ),
-        Align(
+        const Align(
             alignment: Alignment.topLeft,
             child: Text("Counseling & Therapy Directories",
                 style: TextStyle(fontSize: 18))),
@@ -255,6 +254,6 @@ class MySquares extends StatelessWidget {
           ],
         ),
       ]),
-    ));
+    );
   }
 }
