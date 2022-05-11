@@ -63,18 +63,18 @@ class Meditation extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: const [
-                    MeditateBox(pic: 'assets/images/meditate-nature.png', topic: "Zen Meditation"),
-                    MeditateBox(pic: "assets/images/meditate-beach.png", topic: "Spiritual Meditation"),
-                    MeditateBox(pic: "assets/images/meditate-pond.png", topic: "Breathing Meditation"),
+                    MeditateBox(pic: 'assets/images/meditate-nature.png', topic: "Zen Meditation", videoID: "4JudZVYYJ40", IdList: ["4JudZVYYJ40", "86m4RC_ADEY", "qiTs4iItDTM", "5GSMRUl9UPo", "LL2XUTeoUsM"], meditationType: "Zen",),
+                    MeditateBox(pic: "assets/images/meditate-beach.png", topic: "Spiritual Meditation", videoID: "syx3a1_LeFo", IdList: ["syx3a1_LeFo", "v7grtHZAd-0", "G0QdWOcB6Ho", "6VI4Y87paPs", "dXrkP_z2wG4"], meditationType: "Spiritual",),
+                    MeditateBox(pic: "assets/images/meditate-pond.png", topic: "Breathing Meditation", videoID: "I-SFdhVwrVA", IdList: ["I-SFdhVwrVA", "VUjiXcfKBn8", "67SeR3LxtdI", "TXNECaIJPDI", "J62F0Y6PKes", "LE406OUgJ0s"], meditationType: "Breathing",),
                   ],
                 ),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: const [
-                    MeditateBox(pic: "assets/images/meditate-sky.png", topic: "Mindfulness Meditation"),
-                    MeditateBox(pic: "assets/images/meditate-pebbles.png", topic: "Focused Meditation"),
-                    MeditateBox(pic: "assets/images/meditate-grass.png", topic: "Transcendental Meditation"),
+                    MeditateBox(pic: "assets/images/meditate-sky.png", topic: "Mindfulness Meditation", videoID: "ZToicYcHIOU", IdList: ["ZToicYcHIOU", "kH-OQn5Ui8g", "ssss7V1_eyA", "6p_yaNFSYao", "-2zdUXve6fQ"], meditationType: "Mindfulness",),
+                    MeditateBox(pic: "assets/images/meditate-pebbles.png", topic: "Focused Meditation", videoID: "zSkFFW--Ma0", IdList: ["zSkFFW--Ma0", "4Bs0qUB3BHQ", "ausxoXBrmWs", "CcqZ47d398k", "vBO8QEjANjs", "xpMlKSZAIks"], meditationType: "Focus",),
+                    MeditateBox(pic: "assets/images/meditate-grass.png", topic: "Transcendental Meditation", videoID: "AeLPf4zZx_Q", IdList: ["AeLPf4zZx_Q", "SY2YvQccXiE", "aD-TP_4GtpQ", "1oCJ1MIjEF4", "c-QNd0o8Klw", "9fGfqzPyU0M"], meditationType: "Transcendental",),
                   ],
                 )
               ],
@@ -136,8 +136,11 @@ class _backButtonState extends State<backButton> {
 class MeditateBox extends StatefulWidget {
   final String pic;
   final String topic;
+  final String videoID;
+  final List<String> IdList;
+  final String meditationType;
 
-  const MeditateBox({ Key? key, required this.pic, required this.topic }) : super(key: key);
+  const MeditateBox({ Key? key, required this.pic, required this.topic, required this.videoID, required this.IdList, required this.meditationType }) : super(key: key);
 
   @override
   State<MeditateBox> createState() => _MeditateBoxState();
@@ -148,7 +151,9 @@ class _MeditateBoxState extends State<MeditateBox> {
   Widget build(BuildContext context) {
     widget.pic;
     widget.topic;
-
+    widget.videoID;
+    widget.IdList;
+    widget.meditationType;
 
     return OnHoverCheckIn(
       builder: ((isHovered) {
@@ -157,7 +162,7 @@ class _MeditateBoxState extends State<MeditateBox> {
             Image.asset(widget.pic, height: 334, width: 238,),
                 Card(
                   child: Text(widget.topic, style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
-                  color: Colors.grey[300],
+                  color: Colors.white,
                 ),
           ],
           alignment: Alignment.centerLeft,
@@ -165,7 +170,7 @@ class _MeditateBoxState extends State<MeditateBox> {
           press: () {
             Navigator.push(
               context, 
-              MaterialPageRoute(builder: (context) => MeditationVideo()));
+              MaterialPageRoute(builder: (context) => MeditationVideo(videoID: widget.videoID, IdList: widget.IdList, meditationType: widget.meditationType)));
           });
       }), x: 0, y: -15, z: 0,
     );
