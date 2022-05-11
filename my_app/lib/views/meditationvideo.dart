@@ -6,23 +6,17 @@ import 'package:provider/provider.dart';
 import 'package:my_app/responsive.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../views/mediatation.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+import '../views/mediatation.dart';
+
 
 
 class MeditationVideo extends StatelessWidget {
-  static String video = "ZToicYcHIOU";
+  final String videoID;
+  final List<String> IdList;
+  final String meditationType;
 
-  final YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: video,
-    flags: const YoutubePlayerFlags(
-      autoPlay: false,
-      mute: false,
-    
-    ),
-  );
-
-
-  MeditationVideo({Key? key}) : super(key: key);
+  const MeditationVideo({Key? key, required this.videoID, required this.IdList, required this.meditationType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +44,8 @@ class MeditationVideo extends StatelessWidget {
                                   context.read<MenuController>().controlMenu,
                             ),
                           const SizedBox(width: 30),
-                          const Text("Meditation",
-                              style: TextStyle(
+                          Text(meditationType + " Meditation",
+                              style: const TextStyle(
                                   color: Color(0xff0B3F24),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 40)),
@@ -67,13 +61,13 @@ class MeditationVideo extends StatelessWidget {
               child: const backButton(),
             ),
 
-            Center(
-              child: YoutubePlayer(
-                width: 500,
-                controller: _controller,
-                liveUIColor: Colors.red,
-              ),
-            )
+            const SizedBox(height: 50,),
+
+             Center(
+              child: YoutubeAppDemo(videoId: (videoID), IdList: IdList,),
+            ),
+
+            const SizedBox(height: 50,)
           ],
         ),
       ),
@@ -81,18 +75,42 @@ class MeditationVideo extends StatelessWidget {
   }
 }
 
-class Video extends StatefulWidget {
-  const Video({ Key? key }) : super(key: key);
+class YoutubeAppDemo extends StatefulWidget {
+  final String videoId;
+  final List<String> IdList;
+  const YoutubeAppDemo({ Key? key, required this.videoId, required this.IdList }) : super(key: key);
 
   @override
-  State<Video> createState() => _VideoState();
+  State<YoutubeAppDemo> createState() => _YoutubeAppDemoState();
 }
 
-class _VideoState extends State<Video> {
+class _YoutubeAppDemoState extends State<YoutubeAppDemo> {
+  late YoutubePlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = YoutubePlayerController(
+      initialVideoId: widget.videoId, 
+      params: YoutubePlayerParams(
+        showControls: true,
+        showFullscreenButton: true,
+        desktopMode: true,
+        privacyEnhanced: true,
+        strictRelatedVideos: true,
+        autoPlay: true,
+        playlist: widget.IdList,
+      ) );
+  }
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    const player = YoutubePlayerIFrame();
+    return 
+    SizedBox(
+      child:
+        YoutubePlayerControllerProvider(
+          controller: _controller, 
+          child: player), width: 1000,
     );
   }
 }
